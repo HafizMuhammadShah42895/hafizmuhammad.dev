@@ -1,518 +1,740 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hafiz Muhammad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'primary': ['Poppins', 'sans-serif'],
+                        'secondary': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Light mode - very decent professional colors
+                        'decent-blue': '#1e40af',
+                        'decent-green': '#047857',
+                        'decent-purple': '#6d28d9',
+                        'decent-pink': '#be185d',
+                        'decent-orange': '#c2410c',
+                        'decent-red': '#b91c1c',
+                        'decent-teal': '#0f766e',
+                        'decent-indigo': '#3730a3',
+                        'decent-emerald': '#047857',
+                        'decent-amber': '#b45309',
+                        'decent-slate': '#334155',
+                        'decent-gray': '#374151',
+
+                        // Light backgrounds
+                        'light-blue-bg': '#f1f5f9',
+                        'light-green-bg': '#f7fdf9',
+                        'light-purple-bg': '#faf5ff',
+                        'light-pink-bg': '#fdf2f8',
+                        'light-orange-bg': '#fff8f1',
+                        'light-teal-bg': '#f0fdfa',
+                        'light-gradient': '#fafafa',
+
+                        // Dark mode - keeping original
+                        'dark-navy': '#1a202c',
+                        'dark-indigo': '#2c3e50',
+                        'soft-cream': '#fffaf0',
+                        'soft-gray': '#f4f4f5',
+                        'dark-gray': '#2d3748',
+                        'soft-lavender': '#c3bef0',
+                    },
+                },
+            },
+        };
+    </script>
     <style>
-        /* General container styling */
-        .container {
-            margin-top: 50px;
-        }
-
-        /* Profile photo styling */
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border: 4px solid #6c757d; /* Elegant grey border */
-            transition: transform 0.3s ease;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.1); /* Enlarges on hover */
-        }
-
-        /* Profile container styling */
-        .profile-container {
-            margin: 20px 0;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        /* Profile information styling */
-        .profile-info p {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #495057;
-        }
-
-        /* Typography styling */
-        h1 {
-            color: #343a40;
-            font-weight: bold;
-            font-family: 'Roboto', sans-serif; /* Easy-to-read font */
-        }
-
-        p {
-            color: #6c757d;
-            font-family: 'Roboto', sans-serif; /* Easy-to-read font */
-        }
-
-        /* Add padding between sections */
-        .mb-4 {
-            margin-bottom: 40px;
-        }
-
-        /* Animation for entrance */
-        .animate__animated {
-            animation-duration: 1s;
-        }
-
-        /* Customize hover effects */
-        .profile-container:hover {
-            background-color: #f8f9fa;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Text center and responsive */
-        .text-center {
-            text-align: center;
-        }
-
-        /* Adding responsive styles */
-        @media (max-width: 768px) {
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-
-            .profile-container {
-                padding: 20px;
-            }
-
-            .container {
-                margin-top: 20px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            p, li {
-                font-size: 1rem;
-            }
-        }
-
-        /* Custom CSS for About section */
-        body {
-            background-color: #e9ecef;
-            font-family: 'Roboto', sans-serif; /* Easy-to-read font */
-        }
-
-        h1, h2 {
-            color: #343a40;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-        }
-
-        p, li {
-            font-size: 1.1rem;
-            color: #495057;
-            line-height: 1.7;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        li strong {
-            font-weight: bold;
-        }
-
-        .btn-primary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-            font-size: 1.2rem;
-        }
-
-        /* Add some animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .slide-in {
-            animation: slideIn 2s ease-in-out;
-        }
-
-        /* Space between sections */
-        .section {
-            margin-bottom: 40px;
-        }
-
-        /* Equal height cards in Services section */
-        .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card-body {
-            flex: 1;
-        }
-
-        /* Animations for About section */
-        .about-section {
-            animation: fadeInUp 1s ease-in-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Contact section styling */
-        .contact-section {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .contact-icons img {
-            width: 50px;
-            height: 50px;
-            margin: 10px;
-            transition: transform 0.3s ease;
-            animation: bounce 2s infinite;
-        }
-
-        .contact-icons img:hover {
-            transform: scale(1.2);
-        }
-
-        /* Responsive styles for contact section */
-        @media (max-width: 768px) {
-            .contact-icons {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .contact-icons img {
-                margin: 5px;
-            }
-        }
-
-        /* New animations and creativity for About section */
-        .about-section h1, .about-section h2 {
-            position: relative;
-            display: inline-block;
-        }
-
-        .about-section h1::after, .about-section h2::after {
+        /* Vibrant animated background for light theme */
+        body::before {
             content: '';
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            background-color: #6c757d;
-            bottom: 0;
+            position: fixed;
+            top: 0;
             left: 0;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.5s ease-out;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ff6b9d, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fab1a0);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+            opacity: 0.1;
         }
 
-        .about-section h1:hover::after, .about-section h2:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        .dark body::before {
+            display: none;
         }
 
-        .about-section p {
-            position: relative;
-            opacity: 0;
-            animation: fadeInText 1s forwards;
-        }
-
-        .about-section p:nth-child(1) {
-            animation-delay: 0.5s;
-        }
-
-        .about-section p:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .about-section p:nth-child(3) {
-            animation-delay: 1.5s;
-        }
-
-        @keyframes fadeInText {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Additional creativity */
-        .about-section .highlight {
-            background: linear-gradient(to right, #6c757d, #adb5bd);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: gradient 3s infinite;
-        }
-
-        @keyframes gradient {
+        @keyframes gradientShift {
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
         }
 
-        .about-section .icon {
-            font-size: 2rem;
-            margin-right: 10px;
-            color: #6c757d;
-            transition: transform 0.3s ease;
+        /* Floating shapes for additional visual interest */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
         }
 
-        .about-section .icon:hover {
-            transform: rotate(360deg);
+        .dark body::after {
+            display: none;
         }
 
-        /* Bounce animation for contact icons */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+
+            66% {
+                transform: translateY(10px) rotate(-1deg);
+            }
+        }
+
+        /* Better text visibility and font improvements */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.025em;
+        }
+
+        .font-bold {
+            font-weight: 700 !important;
+        }
+
+        .font-semibold {
+            font-weight: 600 !important;
+        }
+
+        .font-medium {
+            font-weight: 500 !important;
+        }
+
+        /* Enhanced text contrast */
+        .text-contrast {
+            color: #1f2937 !important;
+            font-weight: 500;
+        }
+
+        .text-contrast-dark {
+            color: #f9fafb !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Light mode gradient backgrounds with decent colors */
+        .gradient-bg-1 {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 50%, #fdf2f8 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-bg-2 {
+            background: linear-gradient(135deg, #f0fdf4 0%, #fff7ed 50%, #f0fdfa 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-bg-3 {
+            background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 50%, #f5f3ff 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-bg-4 {
+            background: linear-gradient(135deg, #f0fdfa 0%, #f0fdf4 50%, #eff6ff 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Multi-color decorative elements */
+        .multi-color-border {
+            border-image: linear-gradient(45deg, #3b82f6, #10b981, #8b5cf6, #ec4899, #f59e0b) 1;
+        }
+
+        /* Slide in left and right base */
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        /* ZoomIn animation */
+        .zoomIn {
+            animation: zoomIn 1s ease forwards;
+            animation-play-state: paused;
+        }
+
+        /* SlideInUp animation */
+        .slideInUp {
+            animation: slideInUp 1s ease 0.3s forwards;
+            animation-play-state: paused;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
                 transform: translateY(0);
+                opacity: 1;
             }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
+        }
+
+        /* Typewriter style */
+        #typewriter {
+            display: inline-block;
+            border-right: 2px solid currentColor;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: bottom;
+            font-style: italic;
+            font-size: 1.25rem;
+            font-weight: 500;
+            min-height: 1.5em;
+            letter-spacing: 0.025em;
+            color: #4f46e5;
+        }
+
+        .dark #typewriter {
+            color: #c3bef0;
+        }
+
+        /* -- MOBILE MENU FADE ANIMATION -- */
+        #mobile-menu {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        #mobile-menu.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Color animation for skills */
+        .skill-badge {
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.025em;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Colorful hover effects */
+        .colorful-hover {
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .colorful-hover:hover {
+            background: linear-gradient(45deg, #2563eb, #059669, #7c3aed);
+            color: white !important;
+            transform: scale(1.05);
+            font-weight: 600;
+        }
+
+        /* Enhanced button styles */
+        .btn-enhanced {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#">My Portfolio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+
+<body
+    class="font-secondary bg-white dark:bg-dark-navy text-gray-900 dark:text-soft-cream transition-colors duration-700">
+    <!-- Navbar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-white/90 dark:bg-dark-indigo shadow-lg backdrop-blur-sm transition-colors duration-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1
+                class="text-2xl font-primary font-bold bg-gradient-to-r from-decent-blue to-decent-purple bg-clip-text text-transparent dark:text-soft-cream">
+                Portfolio</h1>
+
+            <!-- Hamburger button for mobile -->
+            <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+                class="md:hidden text-decent-blue dark:text-soft-cream focus:outline-none focus:ring-2 focus:ring-decent-indigo">
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop icon navbar (hidden on mobile) -->
+            <ul id="desktop-menu" class="hidden md:flex md:space-x-8 items-center">
+                <li>
+                    <a href="#home" aria-label="Home" title="Home"
+                        class="p-2 rounded text-decent-blue hover:bg-light-blue-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
+                        <i class="fas fa-house fa-lg"></i>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                <li>
+                    <a href="#about" aria-label="About" title="About"
+                        class="p-2 rounded text-decent-green hover:bg-light-green-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
+                        <i class="fas fa-user fa-lg"></i>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
+                <li>
+                    <a href="#skills" aria-label="Skills" title="Skills"
+                        class="p-2 rounded text-decent-purple hover:bg-light-purple-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
+                        <i class="fas fa-lightbulb fa-lg"></i>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                <li>
+                    <a href="#education" aria-label="Education" title="Education"
+                        class="p-2 rounded text-decent-pink hover:bg-light-pink-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
+                        <i class="fas fa-graduation-cap fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience" aria-label="Experience" title="Experience"
+                        class="p-2 rounded text-decent-orange hover:bg-light-orange-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
+                        <i class="fas fa-briefcase fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" aria-label="Contact" title="Contact"
+                        class="p-2 rounded text-decent-teal hover:bg-light-teal-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                </li>
+
+                <!-- Resume Download Button on Desktop -->
+                <li>
+                    <a href="resume.pdf"
+                        class="resume-link ml-6 px-4 py-2 btn-enhanced bg-gradient-to-r from-decent-blue to-decent-purple text-white rounded-lg hover:from-decent-purple hover:to-decent-pink transition-all duration-300 transform hover:scale-105"
+                        aria-label="Download Resume" title="Download Resume">
+                        <i class="fas fa-file-download mr-2"></i> Resume
+                    </a>
+                </li>
+
+                <li>
+                    <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" title="Toggle Dark Mode"
+                        class="ml-6 p-2 border-2 border-decent-indigo rounded text-decent-indigo hover:bg-decent-indigo hover:text-white dark:text-soft-lavender dark:hover:bg-dark-indigo transition-all duration-300">
+                        🌓
+                    </button>
                 </li>
             </ul>
+
+            <!-- Mobile text menu (hidden by default) -->
+            <div id="mobile-menu"
+                class="fixed top-0 left-0 w-full h-full bg-white dark:bg-dark-indigo text-gray-800 dark:text-soft-cream flex flex-col items-center justify-center space-y-8 text-2xl font-semibold z-50">
+                <a href="#home" class="text-decent-blue hover:text-decent-purple transition-colors"
+                    onclick="closeMobileMenu()">Home</a>
+                <a href="#about" class="text-decent-green hover:text-decent-teal transition-colors"
+                    onclick="closeMobileMenu()">About</a>
+                <a href="#skills" class="text-decent-purple hover:text-decent-pink transition-colors"
+                    onclick="closeMobileMenu()">Skills</a>
+                <a href="#education" class="text-decent-pink hover:text-decent-red transition-colors"
+                    onclick="closeMobileMenu()">Education</a>
+                <a href="#experience" class="text-decent-orange hover:text-decent-red transition-colors"
+                    onclick="closeMobileMenu()">Experience</a>
+                <a href="#contact" class="text-decent-teal hover:text-decent-green transition-colors"
+                    onclick="closeMobileMenu()">Contact</a>
+
+                <!-- Resume Download Button on Mobile -->
+                <a href="resume.pdf"
+                    class="resume-link mt-6 px-6 py-3 btn-enhanced bg-gradient-to-r from-decent-blue to-decent-purple text-white rounded-lg hover:from-decent-purple hover:to-decent-pink transition-all duration-300"
+                    aria-label="Download Resume" title="Download Resume">
+                    Download Resume
+                </a>
+
+                <!-- Dark mode toggle as text button on mobile -->
+                <button onclick="toggleDarkMode()"
+                    class="mt-6 px-6 py-2 border-2 border-decent-indigo rounded text-decent-indigo hover:bg-decent-indigo hover:text-white dark:text-soft-lavender dark:hover:bg-dark-indigo transition-all duration-300"
+                    aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
+                    Toggle Dark Mode 🌓
+                </button>
+
+                <button onclick="closeMobileMenu()" aria-label="Close menu"
+                    class="absolute top-6 right-6 text-3xl text-decent-red hover:text-decent-pink transition-colors focus:outline-none focus:ring-2 focus:ring-decent-indigo">
+                    &times;
+                </button>
+            </div>
         </div>
     </nav>
 
-    <div id="home" class="container">
-        <h1 class="text-center mt-5 mb-4 animate__animated animate__fadeIn">Welcome to My Portfolio</h1>
-    
-        <div class="profile-container d-flex justify-content-center align-items-center flex-column animate__animated animate__zoomIn">
-            <img src="img/profile_pic.jpg" alt="Profile Photo" class="profile-photo rounded-circle mb-4">
-            <div class="profile-info text-center">
-                <p class="lead">Hi! I'm <strong>Hafiz Muhammad</strong>, a passionate web developer with experience in creating dynamic and responsive websites.</p>
-                <p class="lead">I'm skilled in <strong>HTML, CSS, Bootstrap, JavaScript, jQuery, MySQL, and Flask</strong>, and I'm always eager to learn new technologies.</p>
+    <main class="pt-24 space-y-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Home -->
+        <section id="home" class="flex flex-col items-center justify-center text-center py-20 max-w-3xl mx-auto">
+            <img src="pic.png" alt="Photo of Hafiz Muhammad"
+                class="w-32 h-32 rounded-full border-4 border-transparent bg-gradient-to-r from-decent-blue via-decent-purple to-decent-pink p-1 mb-6 transition-all duration-700 hover:scale-110"
+                style="background-clip: padding-box;" loading="lazy" />
+            <h2
+                class="text-4xl font-primary font-bold zoomIn bg-gradient-to-r from-decent-blue via-decent-purple to-decent-pink bg-clip-text text-transparent dark:text-soft-cream transition-colors duration-700">
+                Hafiz Muhammad
+            </h2>
+            <p
+                class="mt-4 text-lg font-medium slideInUp text-decent-indigo dark:text-soft-lavender transition-colors duration-700">
+                <span id="typewriter"></span>
+            </p>
+        </section>
+
+        <!-- Decorative Divider -->
+        <div
+            class="w-full h-8 bg-gradient-to-r from-decent-blue via-decent-green via-decent-purple via-decent-pink to-decent-orange dark:from-dark-indigo dark:via-dark-indigo dark:to-dark-indigo transition-colors duration-700 rounded-full">
+        </div>
+
+        <!-- About -->
+        <section id="about"
+            class="px-10 py-16 flex flex-col justify-center max-w-4xl mx-auto gradient-bg-1 dark:bg-dark-indigo rounded-2xl shadow-xl transition-colors duration-700">
+            <h2 class="text-3xl font-primary font-semibold mb-4 text-decent-blue dark:text-soft-lavender slide-in-left">
+                About Me
+            </h2>
+            <p class="text-lg font-medium slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
+                Hello! I'm Hafiz Muhammad, a passionate web developer with a strong foundation in both front-end and
+                back-end technologies. I love creating interactive and dynamic web applications that provide a seamless
+                user experience.
+            </p>
+        </section>
+
+        <!-- Decorative Divider -->
+        <div
+            class="w-full h-6 bg-gradient-to-r from-decent-green via-decent-teal to-decent-blue dark:from-dark-indigo dark:to-dark-navy transition-colors duration-700 rounded-full">
+        </div>
+
+        <!-- Skills -->
+        <section id="skills"
+            class="px-10 py-16 flex flex-col justify-center gradient-bg-2 dark:bg-dark-navy max-w-5xl mx-auto rounded-2xl shadow-xl transition-colors duration-700">
+            <h2
+                class="text-3xl font-primary font-semibold mb-8 text-decent-green dark:text-soft-lavender slide-in-left">
+                Skills
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <span
+                    class="skill-badge bg-gradient-to-r from-decent-blue to-blue-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
+                    Web Developer</span>
+                <span
+                    class="skill-badge bg-gradient-to-r from-decent-green to-green-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
+                    Graphic Designer
+                </span>
+                <span
+                    class="skill-badge bg-gradient-to-r from-decent-purple to-purple-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
+                    Web Scraping
+                </span>
+                <span
+                    class="skill-badge bg-gradient-to-r from-decent-pink to-pink-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
+                    Application Development
+                </span>
+                <span
+                    class="skill-badge bg-gradient-to-r from-decent-orange to-orange-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
+                    Mobile Development
+                </span>
+                <span
+                    class="skill-badge bg-gradient-to-r from-decent-teal to-teal-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
+                    Flask Development
+                </span>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div id="about" class="container mt-5">
-        <div class="section fade-in about-section">
-            <h1>About Me</h1>
-            <p>Hello! I'm Hafiz Muhammad, a passionate web developer with a strong foundation in both front-end and back-end technologies. I love creating interactive and dynamic web applications that provide a seamless user experience.</p>
+        <!-- Decorative Divider -->
+        <div
+            class="w-full h-6 bg-gradient-to-r from-decent-purple via-decent-pink to-decent-red dark:from-dark-indigo dark:to-dark-navy transition-colors duration-700 rounded-full">
         </div>
 
-        <div class="section slide-in about-section">
-            <h2>Personal Details</h2>
-            <ul class="list-unstyled">
-                <li><strong>Email:</strong> hafizmuhammadshah11@gmail.com</li>
-                <li><strong>Location:</strong> Lahore, Pakistan</li>
+        <!-- Education -->
+        <section id="education"
+            class="px-10 py-16 flex flex-col justify-center max-w-4xl mx-auto gradient-bg-3 dark:bg-dark-indigo rounded-2xl shadow-xl transition-colors duration-700">
+            <h2 class="text-3xl font-primary font-semibold mb-4 text-decent-pink dark:text-soft-lavender slide-in-left">
+                Education
+            </h2>
+            <p class="text-lg font-medium slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
+                Bachelor of Science in Computer Science - Riphah International University (2022 - 2026)
+            </p>
+        </section>
+
+        <!-- Decorative Divider -->
+        <div
+            class="w-full h-6 bg-gradient-to-r from-decent-orange via-decent-amber to-decent-pink dark:from-dark-navy dark:to-dark-indigo transition-colors duration-700 rounded-full">
+        </div>
+
+        <!-- Experience -->
+        <section id="experience"
+            class="px-10 py-16 flex flex-col justify-center max-w-4xl mx-auto gradient-bg-4 dark:bg-dark-navy rounded-2xl shadow-xl transition-colors duration-700">
+            <h2
+                class="text-3xl font-primary font-semibold mb-4 text-decent-orange dark:text-soft-lavender slide-in-left">
+                Experience or Work History Highlights
+            </h2>
+            <ul class="list-disc pl-6 space-y-4 slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
+                <li class="font-medium hover:text-decent-blue transition-colors cursor-pointer">Committee App: A web
+                    application for managing committees with user authentication and payment functionality.</li>
+                <li class="font-medium hover:text-decent-green transition-colors cursor-pointer">Portfolio Website: A
+                    personal portfolio showcasing my skills and projects.</li>
+                <li class="font-medium hover:text-decent-purple transition-colors cursor-pointer">React Project: A web
+                    app built with React, focusing on user experience and interface design.</li>
             </ul>
+        </section>
+
+        <!-- Decorative Divider -->
+        <div
+            class="w-full h-6 bg-gradient-to-r from-decent-teal via-decent-emerald to-decent-blue dark:from-dark-indigo dark:to-dark-navy transition-colors duration-700 rounded-full">
         </div>
 
-        <div class="section slide-in about-section">
-            <h2>Education</h2>
-            <ul class="list-unstyled">
-                <li><strong>Bachelor of Science in Computer Science</strong> - Riphah International University (2022 - 2026)</li>
-            </ul>
-        </div>
+        <!-- Contact -->
+        <section id="contact"
+            class="px-10 py-20 flex flex-col justify-center text-center max-w-4xl mx-auto gradient-bg-1 dark:bg-dark-indigo rounded-2xl shadow-xl transition-colors duration-700">
+            <h2 class="text-3xl font-primary font-semibold mb-8 text-decent-teal dark:text-soft-lavender slide-in-left">
+                Contact Me
+            </h2>
 
-        <div class="section slide-in about-section">
-            <h2>Skills</h2>
-            <ul class="list-unstyled">
-                <li><span class="icon">💻</span><strong>Web Development:</strong> HTML, CSS, Bootstrap</li>
-                <li><span class="icon">⚙️</span><strong>JavaScript Frameworks:</strong> JavaScript, jQuery</li>
-                <li><span class="icon">🔧</span><strong>Back-end Technologies:</strong> Flask, Node.js</li>
-                <li><span class="icon">💾</span><strong>Databases:</strong> MySQL, SQLAlchemy</li>
-                <li><span class="icon">🔄</span><strong>Version Control:</strong> Git, GitHub</li>
-            </ul>
-        </div>
-
-        <div class="section slide-in about-section">
-            <h2>My Projects</h2>
-            <ul class="list-unstyled">
-                <li><strong>Committee App:</strong> A web application for managing committees with user authentication and payment functionality.</li>
-                <li><strong>Portfolio Website:</strong> A personal portfolio showcasing my skills and projects.</li>
-                <li><strong>React Project:</strong> A web app built with React, focusing on user experience and interface design.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="services" class="container mt-5">
-        <h1>Services</h1>
-        <p>Here are the services I offer:</p>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="img/Web_Development.jpg" class="card-img-top" alt="Service 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Web Development</h5>
-                        <p class="card-text">Creating responsive and user-friendly websites using modern technologies like JavaScript, Python, Flask, and MySQL.</p>
-                    </div>
-                </div>
+            <p class="text-lg font-medium mb-8 slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
+                Click on the icons below to reach out to me:
+            </p>
+            <div class="flex justify-center space-x-12 text-5xl">
+                <a href="mailto:hafizmuhammadshah11@gmail.com"
+                    class="text-decent-red hover:text-red-700 slide-in-left transition-all duration-300 transform hover:scale-125">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"
+                    class="text-decent-blue hover:text-blue-700 slide-in-right transition-all duration-300 transform hover:scale-125">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://wa.me/923450976304" target="_blank"
+                    class="text-decent-green hover:text-green-700 slide-in-left transition-all duration-300 transform hover:scale-125">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.upwork.com/nx/find-work/best-matches" target="_blank"
+                    class="text-decent-orange hover:text-orange-700 slide-in-right transition-all duration-300 transform hover:scale-125">
+                    <i class="fab fa-upwork"></i>
+                </a>
             </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="img/Web_scraping.png" class="card-img-top" alt="Service 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Web Scraping</h5>
-                        <p class="card-text">I specialize in web scraping, efficiently extracting data from websites using tools like Scrapy and BeautifulSoup.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="img/Desktop_Application_Development.jpg" class="card-img-top" alt="Service 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Desktop Application Development</h5>
-                        <p class="card-text">I develop desktop applications using Java, creating efficient and user-friendly software solutions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="contact" class="container mt-5 contact-section">
-        <h1>Contact</h1>
-        <p>Feel free to reach out to me through the following platforms:</p>
-        <p class="lead">Click on the icons below to get in touch!</p>
-        <div class="contact-icons">
-            <a href="mailto:hafizmuhammadshah11@gmail.com"><img src="img/email_icon.png" alt="Email" title="Email"></a>
-            <a href="https://github.com/HafizMuhammadShah42895" target="_blank"><img src="img/github_logo.png" alt="GitHub" title="GitHub"></a>
-            <a href="https://wa.me/03450976304" target="_blank"><img src="img/whatsapp_logo.png" alt="WhatsApp" title="WhatsApp"></a>
-            <a href="https://www.linkedin.com/in/hafiz-muhammad-779399247" target="_blank"><img src="img/linkedin_logo.png" alt="LinkedIn" title="LinkedIn"></a>
-        </div>
-    </div>
+            <!-- Resume Download Button on Desktop (below icons) -->
+            <a href="resume.pdf"
+                class="resume-link mt-12 inline-block px-8 py-3 btn-enhanced bg-gradient-to-r from-decent-indigo to-decent-purple text-white rounded-lg hover:from-decent-purple hover:to-decent-pink transition-all duration-300 transform hover:scale-105 shadow-lg"
+                aria-label="Download Resume" title="Download Resume">
+                <i class="fas fa-file-download mr-3"></i> Download Resume
+            </a>
+        </section>
+    </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">© 2024 My Portfolio.</span>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
     <script>
-        // Adding smooth fade-in and slide-in animations
-        $(document).ready(function(){
-            $('.fade-in').addClass('animated fadeIn');
-            $('.slide-in').each(function(i){
-                $(this).delay(i * 500).queue(function(){
-                    $(this).addClass('animated slideInUp');
-                });
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Elements
+            const btn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            // Smooth scrolling for anchor links
-            $('a.nav-link').on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function(){
-                        window.location.hash = hash;
-                    });
+            // Mobile hamburger toggle with fade animation
+            btn.addEventListener('click', () => {
+                const isShown = mobileMenu.classList.contains('show');
+
+                if (isShown) {
+                    mobileMenu.classList.remove('show');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    mobileMenu.classList.add('show');
+                    btn.setAttribute('aria-expanded', 'true');
                 }
             });
 
-            // Tooltip for contact icons
-            $('.contact-icons img').tooltip();
+            // Close mobile menu helper (called from HTML onclick)
+            window.closeMobileMenu = function () {
+                mobileMenu.classList.remove('show');
+                btn.setAttribute('aria-expanded', 'false');
+            };
 
-            // Click event for contact icons
-            $('.contact-icons img').on('click', function() {
-                var message = $('<div class="alert alert-success mt-3">Thank you for reaching out!</div>');
-                $('.contact-section').append(message);
-                message.fadeOut(3000, function() {
-                    $(this).remove();
+            // IntersectionObserver for animations
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const target = entry.target;
+
+                        if (entry.isIntersecting) {
+                            if (target.classList.contains('slide-in-left') || target.classList.contains('slide-in-right')) {
+                                target.classList.add('show');
+                            }
+                            if (target.classList.contains('zoomIn') || target.classList.contains('slideInUp')) {
+                                target.style.animationPlayState = 'running';
+                            }
+                        } else {
+                            if (target.classList.contains('slide-in-left') || target.classList.contains('slide-in-right')) {
+                                target.classList.remove('show');
+                            }
+                            if (target.classList.contains('zoomIn') || target.classList.contains('slideInUp')) {
+                                target.style.animationPlayState = 'paused';
+                                target.style.animation = 'none';
+                                target.offsetHeight; // trigger reflow
+                                target.style.animation = null;
+                            }
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+
+            document.querySelectorAll('.slide-in-left, .slide-in-right, .zoomIn, .slideInUp').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Dark mode toggle (called from HTML onclick)
+            window.toggleDarkMode = function () {
+                document.documentElement.classList.toggle('dark');
+            };
+
+            // Auto-enable dark mode if user prefers it
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Typewriter effect for home section text
+            const phrases = [
+                "Web Developer",
+                "Graphic Designer",
+                "Flask Development"
+            ];
+
+            const typewriterEl = document.getElementById('typewriter');
+            let phraseIndex = 0;
+            let letterIndex = 0;
+            let typing = true;
+            let timeoutId;
+
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+                if (typing) {
+                    if (letterIndex <= currentPhrase.length) {
+                        typewriterEl.textContent = currentPhrase.slice(0, letterIndex);
+                        letterIndex++;
+                        timeoutId = setTimeout(type, 150);
+                    } else {
+                        typing = false;
+                        timeoutId = setTimeout(type, 1000);
+                    }
+                } else {
+                    if (letterIndex >= 0) {
+                        typewriterEl.textContent = currentPhrase.slice(0, letterIndex);
+                        letterIndex--;
+                        timeoutId = setTimeout(type, 100);
+                    } else {
+                        typing = true;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        timeoutId = setTimeout(type, 500);
+                    }
+                }
+            }
+
+            let typingStarted = false;
+            const homeSection = document.getElementById('home');
+            const homeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !typingStarted) {
+                        typingStarted = true;
+                        type();
+                    } else if (!entry.isIntersecting) {
+                        typingStarted = false;
+                        clearTimeout(timeoutId);
+                        typewriterEl.textContent = '';
+                        letterIndex = 0;
+                        typing = true;
+                        phraseIndex = 0;
+                    }
                 });
+            }, { threshold: 0.5 });
+
+            homeObserver.observe(homeSection);
+
+            // Resume link behavior for mobile vs desktop
+            function isMobile() {
+                return /Mobi|Android/i.test(navigator.userAgent);
+            }
+
+            document.querySelectorAll('.resume-link').forEach(link => {
+                if (isMobile()) {
+                    // On mobile, remove download and open in new tab
+                    link.removeAttribute('download');
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                } else {
+                    // On desktop, enable download attribute and remove target
+                    link.setAttribute('download', '');
+                    link.removeAttribute('target');
+                    link.removeAttribute('rel');
+                }
             });
         });
     </script>
 </body>
+
 </html>
