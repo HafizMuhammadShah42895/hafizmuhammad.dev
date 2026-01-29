@@ -1,846 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hafiz Muhammad</title>
+    <title>Hafiz Muhammad | AI & Backend Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        'primary': ['Poppins', 'sans-serif'],
-                        'secondary': ['Inter', 'sans-serif'],
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        // Light mode - very decent professional colors
-                        'decent-blue': '#1e40af',
-                        'decent-green': '#047857',
-                        'decent-purple': '#6d28d9',
-                        'decent-pink': '#be185d',
-                        'decent-orange': '#c2410c',
-                        'decent-red': '#b91c1c',
-                        'decent-teal': '#0f766e',
-                        'decent-indigo': '#3730a3',
-                        'decent-emerald': '#047857',
-                        'decent-amber': '#b45309',
-                        'decent-slate': '#334155',
-                        'decent-gray': '#374151',
-
-                        // Light backgrounds
-                        'light-blue-bg': '#f1f5f9',
-                        'light-green-bg': '#f7fdf9',
-                        'light-purple-bg': '#faf5ff',
-                        'light-pink-bg': '#fdf2f8',
-                        'light-orange-bg': '#fff8f1',
-                        'light-teal-bg': '#f0fdfa',
-                        'light-gradient': '#fafafa',
-
-                        // Dark mode - keeping original
-                        'dark-navy': '#1a202c',
-                        'dark-indigo': '#2c3e50',
-                        'soft-cream': '#fffaf0',
-                        'soft-gray': '#f4f4f5',
-                        'dark-gray': '#2d3748',
-                        'soft-lavender': '#c3bef0',
+                        'brand-blue': '#2563eb',
+                        'brand-indigo': '#4f46e5',
                     },
                 },
             },
         };
     </script>
     <style>
-        /* Vibrant animated background for light theme */
-        body::before {
+        body { background-color: #fcfdfe; scroll-behavior: smooth; overflow-x: hidden; color: #1e293b; }
+        .hero-bg { background: radial-gradient(circle at 0% 0%, #eff6ff 0%, transparent 50%), radial-gradient(circle at 100% 100%, #f5f3ff 0%, transparent 50%); }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563eb;
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-box {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .skill-box:hover { border-color: #2563eb; color: #2563eb; background: #f0f7ff; }
+
+        .exp-dot { position: relative; }
+        .exp-dot::after {
             content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, #ff6b9d, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fab1a0);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            z-index: -2;
-            opacity: 0.1;
+            position: absolute;
+            left: -37px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #2563eb;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
 
-        .dark body::before {
-            display: none;
-        }
+        #project-modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        #modal-content { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* Floating shapes for additional visual interest */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .dark body::after {
-            display: none;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-20px) rotate(2deg);
-            }
-
-            66% {
-                transform: translateY(10px) rotate(-1deg);
-            }
-        }
-
-        /* Better text visibility and font improvements */
-        body {
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            position: relative;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
-            letter-spacing: -0.025em;
-        }
-
-        .font-bold {
-            font-weight: 700 !important;
-        }
-
-        .font-semibold {
-            font-weight: 600 !important;
-        }
-
-        .font-medium {
-            font-weight: 500 !important;
-        }
-
-        /* Enhanced text contrast */
-        .text-contrast {
-            color: #1f2937 !important;
-            font-weight: 500;
-        }
-
-        .text-contrast-dark {
-            color: #f9fafb !important;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Light mode gradient backgrounds with decent colors */
-        .gradient-bg-1 {
-            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 50%, #fdf2f8 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .gradient-bg-2 {
-            background: linear-gradient(135deg, #f0fdf4 0%, #fff7ed 50%, #f0fdfa 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .gradient-bg-3 {
-            background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 50%, #f5f3ff 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .gradient-bg-4 {
-            background: linear-gradient(135deg, #f0fdfa 0%, #f0fdf4 50%, #eff6ff 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* Multi-color decorative elements */
-        .multi-color-border {
-            border-image: linear-gradient(45deg, #3b82f6, #10b981, #8b5cf6, #ec4899, #f59e0b) 1;
-        }
-
-        /* Slide in left and right base */
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 1s ease;
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 1s ease;
-        }
-
-        .show {
-            opacity: 1 !important;
-            transform: translateX(0) !important;
-        }
-
-        /* ZoomIn animation */
-        .zoomIn {
-            animation: zoomIn 1s ease forwards;
-            animation-play-state: paused;
-        }
-
-        /* SlideInUp animation */
-        .slideInUp {
-            animation: slideInUp 1s ease 0.3s forwards;
-            animation-play-state: paused;
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Typewriter style */
-        #typewriter {
-            display: inline-block;
-            border-right: 2px solid currentColor;
-            white-space: nowrap;
-            overflow: hidden;
-            vertical-align: bottom;
-            font-style: italic;
-            font-size: 1.25rem;
-            font-weight: 500;
-            min-height: 1.5em;
-            letter-spacing: 0.025em;
-            color: #4f46e5;
-        }
-
-        .dark #typewriter {
-            color: #c3bef0;
-        }
-
-        /* -- MOBILE MENU FADE ANIMATION -- */
-        #mobile-menu {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-
-        #mobile-menu.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Color animation for skills */
-        .skill-badge {
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.025em;
-        }
-
-        .skill-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Colorful hover effects */
-        .colorful-hover {
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .colorful-hover:hover {
-            background: linear-gradient(45deg, #2563eb, #059669, #7c3aed);
-            color: white !important;
-            transform: scale(1.05);
-            font-weight: 600;
-        }
-
-        /* Enhanced button styles */
-        .btn-enhanced {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.025em;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
+        .cursor { display: inline-block; width: 3px; background-color: #2563eb; margin-left: 4px; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 
-<body
-    class="font-secondary bg-white dark:bg-dark-navy text-gray-900 dark:text-soft-cream transition-colors duration-700">
-    <!-- Navbar -->
-    <nav
-        class="fixed top-0 w-full z-50 bg-white/90 dark:bg-dark-indigo shadow-lg backdrop-blur-sm transition-colors duration-700">
+<body class="font-sans">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1
-                class="text-2xl font-primary font-bold bg-gradient-to-r from-decent-blue to-decent-purple bg-clip-text text-transparent dark:text-soft-cream">
-                Portfolio</h1>
-
-            <!-- Hamburger button for mobile -->
-            <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
-                class="md:hidden text-decent-blue dark:text-soft-cream focus:outline-none focus:ring-2 focus:ring-decent-indigo">
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-
-            <!-- Desktop icon navbar (hidden on mobile) -->
-            <ul id="desktop-menu" class="hidden md:flex md:space-x-8 items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-extrabold tracking-tighter uppercase">Hafiz<span class="text-brand-blue">.</span>M</span>
+            </div>
+            <ul class="hidden md:flex space-x-8 items-center font-bold text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                <li><a href="#about" class="hover:text-brand-blue transition-colors">Intro</a></li>
+                <li><a href="#skills" class="hover:text-brand-blue transition-colors">Skills</a></li>
+                <li><a href="#experience" class="hover:text-brand-blue transition-colors">Work</a></li>
+                <li><a href="#projects" class="hover:text-brand-blue transition-colors">Systems</a></li>
                 <li>
-                    <a href="#home" aria-label="Home" title="Home"
-                        class="p-2 rounded text-decent-blue hover:bg-light-blue-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
-                        <i class="fas fa-house fa-lg"></i>
+                    <a href="Hafiz Muhammad Resume AI & Backend Engineer.pdf" class="px-5 py-2 bg-slate-900 text-white rounded-full hover:bg-brand-blue transition-all">
+                        Download CV
                     </a>
-                </li>
-                <li>
-                    <a href="#about" aria-label="About" title="About"
-                        class="p-2 rounded text-decent-green hover:bg-light-green-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
-                        <i class="fas fa-user fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#skills" aria-label="Skills" title="Skills"
-                        class="p-2 rounded text-decent-purple hover:bg-light-purple-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
-                        <i class="fas fa-lightbulb fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#education" aria-label="Education" title="Education"
-                        class="p-2 rounded text-decent-pink hover:bg-light-pink-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
-                        <i class="fas fa-graduation-cap fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#experience" aria-label="Experience" title="Experience"
-                        class="p-2 rounded text-decent-orange hover:bg-light-orange-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
-                        <i class="fas fa-briefcase fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact" aria-label="Contact" title="Contact"
-                        class="p-2 rounded text-decent-teal hover:bg-light-teal-bg dark:text-soft-cream dark:hover:bg-soft-lavender/30 transition colorful-hover">
-                        <i class="fas fa-envelope fa-lg"></i>
-                    </a>
-                </li>
-
-                <!-- Resume Download Button on Desktop -->
-                <li>
-                    <a href="resume.pdf"
-                        class="resume-link ml-6 px-4 py-2 btn-enhanced bg-gradient-to-r from-decent-blue to-decent-purple text-white rounded-lg hover:from-decent-purple hover:to-decent-pink transition-all duration-300 transform hover:scale-105"
-                        aria-label="Download Resume" title="Download Resume">
-                        <i class="fas fa-file-download mr-2"></i> Resume
-                    </a>
-                </li>
-
-                <li>
-                    <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" title="Toggle Dark Mode"
-                        class="ml-6 p-2 border-2 border-decent-indigo rounded text-decent-indigo hover:bg-decent-indigo hover:text-white dark:text-soft-lavender dark:hover:bg-dark-indigo transition-all duration-300">
-                        🌓
-                    </button>
                 </li>
             </ul>
-
-            <!-- Mobile text menu (hidden by default) -->
-            <div id="mobile-menu"
-                class="fixed top-0 left-0 w-full h-full bg-white dark:bg-dark-indigo text-gray-800 dark:text-soft-cream flex flex-col items-center justify-center space-y-8 text-2xl font-semibold z-50">
-                <a href="#home" class="text-decent-blue hover:text-decent-purple transition-colors"
-                    onclick="closeMobileMenu()">Home</a>
-                <a href="#about" class="text-decent-green hover:text-decent-teal transition-colors"
-                    onclick="closeMobileMenu()">About</a>
-                <a href="#skills" class="text-decent-purple hover:text-decent-pink transition-colors"
-                    onclick="closeMobileMenu()">Skills</a>
-                <a href="#education" class="text-decent-pink hover:text-decent-red transition-colors"
-                    onclick="closeMobileMenu()">Education</a>
-                <a href="#experience" class="text-decent-orange hover:text-decent-red transition-colors"
-                    onclick="closeMobileMenu()">Experience</a>
-                <a href="#contact" class="text-decent-teal hover:text-decent-green transition-colors"
-                    onclick="closeMobileMenu()">Contact</a>
-
-                <!-- Resume Download Button on Mobile -->
-                <a href="resume.pdf"
-                    class="resume-link mt-6 px-6 py-3 btn-enhanced bg-gradient-to-r from-decent-blue to-decent-purple text-white rounded-lg hover:from-decent-purple hover:to-decent-pink transition-all duration-300"
-                    aria-label="Download Resume" title="Download Resume">
-                    Download Resume
-                </a>
-
-                <!-- Dark mode toggle as text button on mobile -->
-                <button onclick="toggleDarkMode()"
-                    class="mt-6 px-6 py-2 border-2 border-decent-indigo rounded text-decent-indigo hover:bg-decent-indigo hover:text-white dark:text-soft-lavender dark:hover:bg-dark-indigo transition-all duration-300"
-                    aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
-                    Toggle Dark Mode 🌓
-                </button>
-
-                <button onclick="closeMobileMenu()" aria-label="Close menu"
-                    class="absolute top-6 right-6 text-3xl text-decent-red hover:text-decent-pink transition-colors focus:outline-none focus:ring-2 focus:ring-decent-indigo">
-                    &times;
-                </button>
-            </div>
         </div>
     </nav>
 
-    <main class="pt-24 space-y-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Home -->
-        <section id="home" class="flex flex-col items-center justify-center text-center py-20 max-w-3xl mx-auto">
-            <img src="pic.png" alt="Photo of Hafiz Muhammad"
-                class="w-32 h-32 rounded-full border-4 border-transparent bg-gradient-to-r from-decent-blue via-decent-purple to-decent-pink p-1 mb-6 transition-all duration-700 hover:scale-110"
-                style="background-clip: padding-box;" loading="lazy" />
-            <h2
-                class="text-4xl font-primary font-bold zoomIn bg-gradient-to-r from-decent-blue via-decent-purple to-decent-pink bg-clip-text text-transparent dark:text-soft-cream transition-colors duration-700">
-                Hafiz Muhammad
-            </h2>
-            <p
-                class="mt-4 text-lg font-medium slideInUp text-decent-indigo dark:text-soft-lavender transition-colors duration-700">
-                <span id="typewriter"></span>
+    <section id="about" class="min-h-screen flex items-center justify-center pt-20 px-6 hero-bg text-center">
+        <div class="max-w-4xl w-full">
+            <h2 class="text-sm font-black tracking-[0.4em] text-brand-blue uppercase mb-4 reveal-up">Hafiz Muhammad</h2>
+            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tighter text-slate-900 reveal-up">
+                Building <span class="text-gradient" id="typewriter"></span><span class="cursor">&nbsp;</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed max-w-2xl mx-auto reveal-up">
+                Advanced <strong>AI & Backend Engineer</strong> specializing in productionizing Generative AI through Agentic workflows and robust RAG pipelines.
             </p>
-        </section>
-
-        <!-- Decorative Divider -->
-        <div
-            class="w-full h-8 bg-gradient-to-r from-decent-blue via-decent-green via-decent-purple via-decent-pink to-decent-orange dark:from-dark-indigo dark:via-dark-indigo dark:to-dark-indigo transition-colors duration-700 rounded-full">
-        </div>
-
-        <!-- About -->
-        <section id="about"
-            class="px-10 py-16 flex flex-col justify-center max-w-4xl mx-auto gradient-bg-1 dark:bg-dark-indigo rounded-2xl shadow-xl transition-colors duration-700">
-            <h2 class="text-3xl font-primary font-semibold mb-4 text-decent-blue dark:text-soft-lavender slide-in-left">
-                About Me
-            </h2>
-            <p class="text-lg font-medium slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
-                Hello! I'm Hafiz Muhammad, a passionate AI Engineer and Full-Stack Developer specializing in cutting-edge AI solutions. 
-                I excel at integrating multiple AI models to create intelligent, interactive applications that transform how users interact with technology. 
-                My expertise spans from computer vision and natural language processing to video processing and document intelligence systems.
-            </p>
-        </section>
-
-        <!-- Decorative Divider -->
-        <div
-            class="w-full h-6 bg-gradient-to-r from-decent-green via-decent-teal to-decent-blue dark:from-dark-indigo dark:to-dark-navy transition-colors duration-700 rounded-full">
-        </div>
-
-        <!-- Skills -->
-        <section id="skills"
-            class="px-10 py-16 flex flex-col justify-center gradient-bg-2 dark:bg-dark-navy max-w-5xl mx-auto rounded-2xl shadow-xl transition-colors duration-700">
-            <h2
-                class="text-3xl font-primary font-semibold mb-8 text-decent-green dark:text-soft-lavender slide-in-left">
-                Skills
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-blue to-blue-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
-                    AI Engineering</span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-green to-green-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
-                    Computer Vision
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-purple to-purple-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
-                    NLP & LLMs
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-pink to-pink-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
-                    Video Processing
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-orange to-orange-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
-                    Python & Flask
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-teal to-teal-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
-                    RAG Systems
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-indigo to-indigo-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
-                    Whisper AI
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-amber to-amber-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
-                    ChromaDB
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-emerald to-emerald-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
-                    Wav2Lip
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-red to-red-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
-                    Ollama
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-slate to-slate-700 text-white px-4 py-3 rounded-lg slide-in-right transition-all duration-300 text-center font-medium shadow-lg">
-                    MySQL
-                </span>
-                <span
-                    class="skill-badge bg-gradient-to-r from-decent-gray to-gray-700 text-white px-4 py-3 rounded-lg slide-in-left transition-all duration-300 text-center font-medium shadow-lg">
-                    Web Development
-                </span>
+            <div class="flex flex-wrap justify-center gap-5 reveal-up">
+                <a href="https://github.com/HafizMuhammadShah42895" target="_blank" class="px-10 py-4 bg-brand-blue text-white font-bold rounded-full transition-all flex items-center shadow-lg shadow-brand-blue/20">
+                    <i class="fab fa-github mr-2"></i> View GitHub Profile
+                </a>
+                <a href="https://www.linkedin.com/in/hafiz-muhammad-779399247" target="_blank" class="px-10 py-4 bg-[#0077B5] text-white font-bold rounded-full hover:bg-[#005885] transition-all flex items-center">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn Profile
+                </a>
             </div>
-        </section>
-
-        <!-- Decorative Divider -->
-        <div
-            class="w-full h-6 bg-gradient-to-r from-decent-purple via-decent-pink to-decent-red dark:from-dark-indigo dark:to-dark-navy transition-colors duration-700 rounded-full">
         </div>
+    </section>
 
-        <!-- Education -->
-        <section id="education"
-            class="px-10 py-16 flex flex-col justify-center max-w-4xl mx-auto gradient-bg-3 dark:bg-dark-indigo rounded-2xl shadow-xl transition-colors duration-700">
-            <h2 class="text-3xl font-primary font-semibold mb-4 text-decent-pink dark:text-soft-lavender slide-in-left">
-                Education
-            </h2>
-            <p class="text-lg font-medium slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
-                Bachelor of Science in Computer Science - Riphah International University (2022 - 2026)
-            </p>
-        </section>
-
-        <!-- Decorative Divider -->
-        <div
-            class="w-full h-6 bg-gradient-to-r from-decent-orange via-decent-amber to-decent-pink dark:from-dark-navy dark:to-dark-indigo transition-colors duration-700 rounded-full">
-        </div>
-
-        <!-- Experience -->
-        <section id="experience"
-            class="px-10 py-16 flex flex-col justify-center max-w-6xl mx-auto gradient-bg-4 dark:bg-dark-navy rounded-2xl shadow-xl transition-colors duration-700">
-            <h2
-                class="text-3xl font-primary font-semibold mb-8 text-decent-orange dark:text-soft-lavender slide-in-left">
-                Experience & Project Highlights
-            </h2>
+    <section id="skills" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl font-black tracking-tighter uppercase">Technical Skills</h2>
+                <div class="w-12 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
             
-            <!-- AI Video Assistant Project -->
-            <div class="mb-12 p-8 bg-white/50 dark:bg-dark-indigo/50 rounded-xl shadow-lg slide-in-right">
-                <h3 class="text-2xl font-primary font-bold mb-4 text-decent-blue dark:text-soft-lavender">
-                    🚀 AI-Powered Video Assistant - PureLogics Internship
-                </h3>
-                <p class="text-lg font-medium mb-4 text-contrast dark:text-soft-cream leading-relaxed">
-                    Built a comprehensive video processing system that transforms any video into intelligent, interactive content using multiple AI models.
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3 text-decent-green dark:text-soft-lavender">🎯 Key Features:</h4>
-                        <ul class="space-y-2 text-contrast dark:text-soft-cream">
-                            <li class="flex items-start"><span class="text-decent-blue mr-2">•</span>Meeting Videos → Minutes, action items, decisions + speaker images</li>
-                            <li class="flex items-start"><span class="text-decent-green mr-2">•</span>Educational Content → Study notes, key concepts, review questions</li>
-                            <li class="flex items-start"><span class="text-decent-purple mr-2">•</span>Interview Videos → Candidate assessments and hiring recommendations</li>
-                            <li class="flex items-start"><span class="text-decent-pink mr-2">•</span>Interactive AI chat for Q&A with video content</li>
-                            <li class="flex items-start"><span class="text-decent-orange mr-2">•</span>Professional PDF exports and AI avatar video creation</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3 text-decent-purple dark:text-soft-lavender">🛠️ Tech Stack:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-decent-blue/20 text-decent-blue rounded-full text-sm font-medium">Python</span>
-                            <span class="px-3 py-1 bg-decent-green/20 text-decent-green rounded-full text-sm font-medium">Flask</span>
-                            <span class="px-3 py-1 bg-decent-purple/20 text-decent-purple rounded-full text-sm font-medium">MySQL</span>
-                            <span class="px-3 py-1 bg-decent-pink/20 text-decent-pink rounded-full text-sm font-medium">Whisper AI</span>
-                            <span class="px-3 py-1 bg-decent-orange/20 text-decent-orange rounded-full text-sm font-medium">pyannoteAI</span>
-                            <span class="px-3 py-1 bg-decent-teal/20 text-decent-teal rounded-full text-sm font-medium">Ollama</span>
-                            <span class="px-3 py-1 bg-decent-indigo/20 text-decent-indigo rounded-full text-sm font-medium">ChromaDB</span>
-                            <span class="px-3 py-1 bg-decent-amber/20 text-decent-amber rounded-full text-sm font-medium">OpenCV</span>
-                            <span class="px-3 py-1 bg-decent-emerald/20 text-decent-emerald rounded-full text-sm font-medium">Coqui TTS</span>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-brand-blue uppercase tracking-widest mb-6">AI & LLM Orchestration</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">LangChain</span><span class="skill-box">LangGraph</span>
+                        <span class="skill-box">RAG</span><span class="skill-box">Ollama</span>
+                        <span class="skill-box">Groq</span><span class="skill-box">ChromaDB</span>
                     </div>
                 </div>
-                <p class="text-base text-contrast dark:text-soft-cream italic">
-                    💙 Grateful to the amazing team at PureLogics, especially Saeed Hassan, for their guidance and mentorship throughout this journey.
-                </p>
-            </div>
-
-            <!-- Document Chat System Project -->
-            <div class="mb-8 p-8 bg-white/50 dark:bg-dark-indigo/50 rounded-xl shadow-lg slide-in-left">
-                <h3 class="text-2xl font-primary font-bold mb-4 text-decent-green dark:text-soft-lavender">
-                    🚀 AI-Powered Document Chat System with Wav2Lip
-                </h3>
-                <p class="text-lg font-medium mb-4 text-contrast dark:text-soft-cream leading-relaxed">
-                    A complete platform that lets you chat with documents and see answers come alive as talking videos!
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3 text-decent-blue dark:text-soft-lavender">✨ Capabilities:</h4>
-                        <ul class="space-y-2 text-contrast dark:text-soft-cream">
-                            <li class="flex items-start"><span class="text-decent-blue mr-2">✅</span>Chat with PDFs using Ollama LLaMA3 + RAG</li>
-                            <li class="flex items-start"><span class="text-decent-green mr-2">✅</span>Hybrid search (ChromaDB + BM25) for accuracy</li>
-                            <li class="flex items-start"><span class="text-decent-purple mr-2">✅</span>Talking AI Videos with Wav2Lip integration</li>
-                            <li class="flex items-start"><span class="text-decent-pink mr-2">✅</span>Voice Input via Whisper AI</li>
-                            <li class="flex items-start"><span class="text-decent-orange mr-2">✅</span>Real-time streaming and markdown rendering</li>
-                            <li class="flex items-start"><span class="text-decent-teal mr-2">✅</span>Multi-user secure login system</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-semibold mb-3 text-decent-purple dark:text-soft-lavender">🛠️ Tech Stack:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-decent-blue/20 text-decent-blue rounded-full text-sm font-medium">Flask</span>
-                            <span class="px-3 py-1 bg-decent-green/20 text-decent-green rounded-full text-sm font-medium">SQLAlchemy</span>
-                            <span class="px-3 py-1 bg-decent-purple/20 text-decent-purple rounded-full text-sm font-medium">MySQL</span>
-                            <span class="px-3 py-1 bg-decent-pink/20 text-decent-pink rounded-full text-sm font-medium">Ollama LLaMA3</span>
-                            <span class="px-3 py-1 bg-decent-orange/20 text-decent-orange rounded-full text-sm font-medium">ChromaDB</span>
-                            <span class="px-3 py-1 bg-decent-teal/20 text-decent-teal rounded-full text-sm font-medium">Whisper</span>
-                            <span class="px-3 py-1 bg-decent-indigo/20 text-decent-indigo rounded-full text-sm font-medium">Wav2Lip</span>
-                            <span class="px-3 py-1 bg-decent-amber/20 text-decent-amber rounded-full text-sm font-medium">gTTS</span>
-                            <span class="px-3 py-1 bg-decent-emerald/20 text-decent-emerald rounded-full text-sm font-medium">FFmpeg</span>
-                        </div>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-brand-indigo uppercase tracking-widest mb-6">Audio & Vision</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">Whisper AI</span><span class="skill-box">PyannoteAI</span>
+                        <span class="skill-box">Wav2Lip</span><span class="skill-box">OpenCV</span>
+                        <span class="skill-box">Cartesia TTS</span>
                     </div>
                 </div>
-                <p class="text-base text-contrast dark:text-soft-cream italic">
-                    💡 This project bridges the gap between text-based AI and visual, interactive communication – making learning and communication smarter, faster, and more engaging.
-                </p>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-emerald-600 uppercase tracking-widest mb-6">Backend & Engineering</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">Python</span><span class="skill-box">FastAPI</span>
+                        <span class="skill-box">Flask</span><span class="skill-box">Django</span>
+                        <span class="skill-box">Stripe API</span><span class="skill-box">Linux</span>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Databases & Core</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">MySQL</span><span class="skill-box">SQLAlchemy</span>
+                        <span class="skill-box">Vector DBs</span><span class="skill-box">OOP</span>
+                        <span class="skill-box">DSA</span>
+                    </div>
+                </div>
             </div>
-
-            <!-- Previous Projects -->
-            <div class="p-6 bg-white/30 dark:bg-dark-indigo/30 rounded-xl shadow-md slide-in-right">
-                <h4 class="text-lg font-semibold mb-4 text-decent-teal dark:text-soft-lavender">📚 Additional Projects:</h4>
-                <ul class="space-y-3 text-contrast dark:text-soft-cream">
-                    <li class="flex items-start"><span class="text-decent-blue mr-2">•</span><strong>Committee App:</strong> Web application for managing committees with user authentication and payment functionality</li>
-                    <li class="flex items-start"><span class="text-decent-green mr-2">•</span><strong>Portfolio Website:</strong> Personal portfolio showcasing skills and projects with modern design</li>
-                    <li class="flex items-start"><span class="text-decent-purple mr-2">•</span><strong>React Projects:</strong> Multiple web applications built with React, focusing on user experience and interface design</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Decorative Divider -->
-        <div
-            class="w-full h-6 bg-gradient-to-r from-decent-teal via-decent-emerald to-decent-blue dark:from-dark-indigo dark:to-dark-navy transition-colors duration-700 rounded-full">
         </div>
+    </section>
 
-        <!-- Contact -->
-        <section id="contact"
-            class="px-10 py-20 flex flex-col justify-center text-center max-w-4xl mx-auto gradient-bg-1 dark:bg-dark-indigo rounded-2xl shadow-xl transition-colors duration-700">
-            <h2 class="text-3xl font-primary font-semibold mb-8 text-decent-teal dark:text-soft-lavender slide-in-left">
-                Contact Me
-            </h2>
+    <section id="experience" class="py-32 px-6 bg-slate-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16">
+                <div class="md:w-1/3 reveal-up">
+                    <h2 class="text-4xl font-black tracking-tighter uppercase leading-none mb-6">Experience<br><span class="text-brand-blue">& Career.</span></h2>
+                    <p class="text-slate-500 text-sm leading-relaxed italic">My professional journey in Lahore, Pakistan.</p>
+                </div>
+                <div class="md:w-2/3 space-y-12 border-l-2 border-slate-200 pl-8 ml-2">
+                    <div class="reveal-up exp-dot">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-slate-900">AI & Backend Engineering Intern</h3>
+                            <span class="font-mono text-[10px] font-bold text-brand-blue bg-blue-50 px-3 py-1 rounded-full uppercase">JULY 2025 - PRESENT</span>
+                        </div>
+                        <p class="text-brand-indigo font-bold text-sm mb-4">PureLogics, Lahore</p>
+                        <ul class="space-y-3 text-slate-500 text-sm">
+                            <li>• Architecting real-time streaming backends using FastAPI.</li>
+                            <li>• Applying OOP principles to integrate Groq and Ollama.</li>
+                            <li>• Optimizing server-side process management for AI tasks.</li>
+                        </ul>
+                    </div>
+                    <div class="reveal-up exp-dot">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-slate-900">AI Video Assistant Developer</h3>
+                        </div>
+                        <p class="text-slate-500 font-bold text-sm mb-4">PureLogics (Internship Project)</p>
+                        <ul class="space-y-3 text-slate-500 text-sm">
+                            <li>• Built an end-to-end video processing pipeline.</li>
+                            <li>• Used Whisper AI and PyannoteAI for speaker identification.</li>
+                            <li>• Integrated ChromaDB for semantic indexing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p class="text-lg font-medium mb-8 slide-in-right text-contrast dark:text-soft-cream leading-relaxed">
-                Click on the icons below to reach out to me:
-            </p>
-            <div class="flex justify-center space-x-12 text-5xl">
-                <a href="mailto:hafizmuhammadshah11@gmail.com"
-                    class="text-decent-red hover:text-red-700 slide-in-left transition-all duration-300 transform hover:scale-125">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank"
-                    class="text-decent-blue hover:text-blue-700 slide-in-right transition-all duration-300 transform hover:scale-125">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://wa.me/923450976304" target="_blank"
-                    class="text-decent-green hover:text-green-700 slide-in-left transition-all duration-300 transform hover:scale-125">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.upwork.com/nx/find-work/best-matches" target="_blank"
-                    class="text-decent-orange hover:text-orange-700 slide-in-right transition-all duration-300 transform hover:scale-125">
-                    <i class="fab fa-upwork"></i>
-                </a>
+    <section id="projects" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="text-4xl font-black tracking-tighter uppercase">Flagship Systems</h2>
+                <p class="text-slate-400 mt-2 font-mono text-[10px] tracking-widest uppercase">Click cards to Zoom-In</p>
+                <div class="w-12 h-1 bg-brand-blue mx-auto mt-4"></div>
             </div>
 
-            <!-- Resume Download Button on Desktop (below icons) -->
-            <a href="resume.pdf"
-                class="resume-link mt-12 inline-block px-8 py-3 btn-enhanced bg-gradient-to-r from-decent-indigo to-decent-purple text-white rounded-lg hover:from-decent-purple hover:to-decent-pink transition-all duration-300 transform hover:scale-105 shadow-lg"
-                aria-label="Download Resume" title="Download Resume">
-                <i class="fas fa-file-download mr-3"></i> Download Resume
-            </a>
-        </section>
-    </main>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="openModal('movers')">
+                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">Movers AI Logistics</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Autonomous Dispatch Agent using LangGraph for matching and route logic.</p>
+                    <div class="flex gap-4 font-mono text-[10px] font-bold text-brand-blue uppercase"><span>LangGraph</span><span>Stripe</span></div>
+                </div>
+                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="openModal('gourmet')">
+                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">Gourmet Haven AI</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Cognitive Voice Agent with sub-second latency via Cartesia TTS.</p>
+                    <div class="flex gap-4 font-mono text-[10px] font-bold text-brand-indigo uppercase"><span>Cartesia</span><span>Groq</span></div>
+                </div>
+                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="openModal('doc-chat')">
+                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">Multimodal Doc Chat</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Interactive avatars using Wav2Lip to walkthrough document queries.</p>
+                    <div class="flex gap-4 font-mono text-[10px] font-bold text-pink-600 uppercase"><span>Wav2Lip</span><span>LLama3</span></div>
+                </div>
+                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="openModal('video-asst')">
+                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">AI Video Assistant</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Automated diarization and transcription indexing with Whisper AI.</p>
+                    <div class="flex gap-4 font-mono text-[10px] font-bold text-emerald-600 uppercase"><span>Whisper AI</span><span>ChromaDB</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto glass-card p-16 rounded-[3rem] text-center border-2 border-brand-blue/10">
+            <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-8 uppercase reveal-up text-slate-900">Let's <span class="text-brand-blue">Connect.</span></h2>
+            <div class="flex flex-wrap justify-center gap-6 reveal-up">
+                <a href="https://www.linkedin.com/in/hafiz-muhammad-779399247" target="_blank" class="px-8 py-4 bg-[#0077B5] text-white font-bold rounded-2xl hover:bg-[#005885] transition-all flex items-center shadow-xl">
+                    <i class="fab fa-linkedin mr-3"></i> LinkedIn
+                </a>
+                <a href="https://wa.me/923450976304" target="_blank" class="px-8 py-4 bg-[#25D366] text-white font-bold rounded-2xl hover:bg-[#128C7E] transition-all flex items-center shadow-xl">
+                    <i class="fab fa-whatsapp mr-3"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="project-modal" class="fixed inset-0 z-[100] invisible opacity-0 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div id="modal-content" class="relative bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden scale-90">
+            <div class="p-8 md:p-12">
+                <button onclick="closeModal()" class="absolute top-8 right-8 text-slate-400 hover:text-brand-blue transition-colors"><i class="fas fa-times text-xl"></i></button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-10 text-center border-t border-slate-100">
+        <p class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.4em]">Hafiz Muhammad • BSCS 2026</p>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Elements
-            const btn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
+        const projectData = {
+            'movers': { 
+                title: 'Movers – AI-Driven Logistics & Vehicle Platform', 
+                desc: 'Designed an Autonomous Dispatch Agent using LangGraph to automate vehicle matching and route logic. Integrated Real-time Tracking and Stripe API for secure payment flows and driver payouts. Developed RAG-based support system using ChromaDB and all-MiniLM-L6-v2 for instant logistics assistance. Utilized Whisper and Cartesia TTS for high-speed voice-activated coordination.', 
+                stack: 'LangGraph, RAG, ChromaDB, Stripe, Whisper, Cartesia TTS, Real-time Tracking, MySQL' 
+            },
+            'gourmet': { 
+                title: 'Gourmet Haven AI (Cognitive Voice Agent)', 
+                desc: 'Built a multi-turn conversational agent with LangGraph capable of autonomous task execution and state management. Engineered a RAG pipeline combining BM25 and Vector Search for grounded, factual response generation. Achieved sub-second voice response latency by integrating Cartesia TTS with Groq-powered inference.', 
+                stack: 'LangGraph, RAG, Cartesia TTS, Groq, Ollama, Flask' 
+            },
+            'doc-chat': { 
+                title: 'Multimodal AI Document Chat', 
+                desc: 'Created a platform for interactive document "walkthroughs" using Wav2Lip to sync AI-generated avatars with text responses. Combined LLaMA3, ChromaDB, and Coqui TTS to create a high-fidelity, multimodal learning experience. Optimized video rendering and audio synchronization using FFmpeg and OpenCV libraries.', 
+                stack: 'LLaMA3, ChromaDB, Wav2Lip, Coqui TTS, Whisper, OpenCV, Flask' 
+            },
+            'video-asst': { 
+                title: 'AI-Powered Video Assistant', 
+                desc: 'Engineered an end-to-end video processing pipeline featuring 95% accurate transcription and automated speaker diarization. Implemented Whisper AI and PyannoteAI to transform raw meeting recordings into structured, searchable data. Integrated ChromaDB for semantic indexing with localized Ollama LLM queries. Developed Flask-based management system with automated PDF summary generation.', 
+                stack: 'Whisper AI, PyannoteAI, ChromaDB, Ollama, Flask, PDF Generation' 
+            }
+        };
 
-            // Mobile hamburger toggle with fade animation
-            btn.addEventListener('click', () => {
-                const isShown = mobileMenu.classList.contains('show');
+        function openModal(id) {
+            const data = projectData[id];
+            document.getElementById('modal-body').innerHTML = `<h2 class="text-3xl font-black mb-4 text-slate-900">${data.title}</h2><p class="text-slate-500 mb-8 leading-relaxed">${data.desc}</p><h4 class="text-xs font-black text-brand-blue uppercase tracking-widest mb-4">Stack</h4><p class="font-mono text-[11px] font-bold text-slate-700">${data.stack}</p>`;
+            document.getElementById('project-modal').classList.remove('invisible', 'opacity-0');
+            document.getElementById('modal-content').classList.replace('scale-90', 'scale-100');
+            document.body.style.overflow = 'hidden';
+        }
 
-                if (isShown) {
-                    mobileMenu.classList.remove('show');
-                    btn.setAttribute('aria-expanded', 'false');
-                } else {
-                    mobileMenu.classList.add('show');
-                    btn.setAttribute('aria-expanded', 'true');
-                }
-            });
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('invisible', 'opacity-0');
+            document.getElementById('modal-content').classList.replace('scale-100', 'scale-90');
+            document.body.style.overflow = 'auto';
+        }
 
-            // Close mobile menu helper (called from HTML onclick)
-            window.closeMobileMenu = function () {
-                mobileMenu.classList.remove('show');
-                btn.setAttribute('aria-expanded', 'false');
-            };
-
-            // IntersectionObserver for animations
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        const target = entry.target;
-
-                        if (entry.isIntersecting) {
-                            if (target.classList.contains('slide-in-left') || target.classList.contains('slide-in-right')) {
-                                target.classList.add('show');
-                            }
-                            if (target.classList.contains('zoomIn') || target.classList.contains('slideInUp')) {
-                                target.style.animationPlayState = 'running';
-                            }
-                        } else {
-                            if (target.classList.contains('slide-in-left') || target.classList.contains('slide-in-right')) {
-                                target.classList.remove('show');
-                            }
-                            if (target.classList.contains('zoomIn') || target.classList.contains('slideInUp')) {
-                                target.style.animationPlayState = 'paused';
-                                target.style.animation = 'none';
-                                target.offsetHeight; // trigger reflow
-                                target.style.animation = null;
-                            }
-                        }
+        function handleEmailClick() {
+            const email = 'hafizmuhammadshah11@gmail.com';
+            // Try mailto first
+            window.location.href = `mailto:${email}`;
+            
+            // Fallback: copy to clipboard after a short delay
+            setTimeout(() => {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(email).then(() => {
+                        console.log('Email copied to clipboard as backup');
+                    }).catch(() => {
+                        console.log('Clipboard access failed');
                     });
-                },
-                { threshold: 0.3 }
-            );
-
-            document.querySelectorAll('.slide-in-left, .slide-in-right, .zoomIn, .slideInUp').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Dark mode toggle (called from HTML onclick)
-            window.toggleDarkMode = function () {
-                document.documentElement.classList.toggle('dark');
-            };
-
-            // Auto-enable dark mode if user prefers it
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark');
-            }
-
-            // Typewriter effect for home section text
-            const phrases = [
-                "AI Engineer",
-                "Computer Vision Expert",
-                "Full-Stack Developer",
-                "Machine Learning Specialist"
-            ];
-
-            const typewriterEl = document.getElementById('typewriter');
-            let phraseIndex = 0;
-            let letterIndex = 0;
-            let typing = true;
-            let timeoutId;
-
-            function type() {
-                const currentPhrase = phrases[phraseIndex];
-                if (typing) {
-                    if (letterIndex <= currentPhrase.length) {
-                        typewriterEl.textContent = currentPhrase.slice(0, letterIndex);
-                        letterIndex++;
-                        timeoutId = setTimeout(type, 150);
-                    } else {
-                        typing = false;
-                        timeoutId = setTimeout(type, 1000);
-                    }
-                } else {
-                    if (letterIndex >= 0) {
-                        typewriterEl.textContent = currentPhrase.slice(0, letterIndex);
-                        letterIndex--;
-                        timeoutId = setTimeout(type, 100);
-                    } else {
-                        typing = true;
-                        phraseIndex = (phraseIndex + 1) % phrases.length;
-                        timeoutId = setTimeout(type, 500);
-                    }
                 }
-            }
+            }, 1000);
+        }
 
-            let typingStarted = false;
-            const homeSection = document.getElementById('home');
-            const homeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !typingStarted) {
-                        typingStarted = true;
-                        type();
-                    } else if (!entry.isIntersecting) {
-                        typingStarted = false;
-                        clearTimeout(timeoutId);
-                        typewriterEl.textContent = '';
-                        letterIndex = 0;
-                        typing = true;
-                        phraseIndex = 0;
-                    }
-                });
-            }, { threshold: 0.5 });
+        ScrollReveal().reveal('.reveal-up', { distance: '40px', origin: 'bottom', duration: 1000, delay: 100, reset: true });
 
-            homeObserver.observe(homeSection);
-
-            // Resume link behavior for mobile vs desktop
-            function isMobile() {
-                return /Mobi|Android/i.test(navigator.userAgent);
-            }
-
-            document.querySelectorAll('.resume-link').forEach(link => {
-                if (isMobile()) {
-                    // On mobile, remove download and open in new tab
-                    link.removeAttribute('download');
-                    link.setAttribute('target', '_blank');
-                    link.setAttribute('rel', 'noopener noreferrer');
-                } else {
-                    // On desktop, enable download attribute and remove target
-                    link.setAttribute('download', '');
-                    link.removeAttribute('target');
-                    link.removeAttribute('rel');
-                }
-            });
-        });
+        const words = ["Agentic Systems", "RAG Pipelines", "AI Workflows", "Backends"];
+        let wordIndex = 0, charIndex = 0, isDeleting = false;
+        function type() {
+            const currentWord = words[wordIndex];
+            document.getElementById('typewriter').textContent = currentWord.substring(0, isDeleting ? charIndex - 1 : charIndex + 1);
+            charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+            let typeSpeed = isDeleting ? 40 : 120;
+            if (!isDeleting && charIndex === currentWord.length) { typeSpeed = 2000; isDeleting = true; }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; typeSpeed = 500; }
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
     </script>
 </body>
-
 </html>
