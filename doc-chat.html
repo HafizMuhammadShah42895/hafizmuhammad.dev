@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Document Chatbot - Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'brand-blue': '#2563eb',
+                        'brand-indigo': '#4f46e5',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body { background-color: #fcfdfe; scroll-behavior: smooth; color: #1e293b; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter uppercase">Hafiz<span class="text-brand-blue">.</span>M</a>
+            <a href="index.html" class="text-sm font-bold text-slate-400 hover:text-brand-blue transition-colors">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-12">
+                <h1 class="text-5xl font-black mb-4 text-slate-900">🤖 AI Document Chatbot</h1>
+                <p class="text-xl text-slate-600 mb-6">Multimodal AI with Wav2Lip Talking Avatar Integration</p>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">Wav2Lip</span>
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">LLaMA3</span>
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">ChromaDB</span>
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">Coqui TTS</span>
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">Whisper</span>
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">Flask</span>
+                    <span class="px-4 py-2 bg-pink-600 text-white text-xs font-bold rounded-full">OpenCV</span>
+                </div>
+                <a href="https://github.com/HafizMuhammadShah42895/Pdf-Chat-Bot" target="_blank" class="inline-flex items-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    <i class="fab fa-github mr-2"></i> View Repository
+                </a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📌 Description</h2>
+                <p class="text-slate-600 leading-relaxed mb-4">Upload documents. Ask questions. Get answers — with a talking AI avatar.</p>
+                <p class="text-slate-600 leading-relaxed">Created a platform for interactive document "walkthroughs" using Wav2Lip to sync AI-generated avatars with text responses. Combined LLaMA3, ChromaDB, and Coqui TTS to create a high-fidelity, multimodal learning experience. Optimized video rendering and audio synchronization using FFmpeg and OpenCV libraries.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">✨ Features</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-bold text-slate-900">Feature</th>
+                                <th class="px-4 py-3 text-left font-bold text-slate-900">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-600">
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">📄 Document Upload</td>
+                                <td class="px-4 py-3">PDF & image ingestion with OCR support</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">🔍 RAG-based Q&A</td>
+                                <td class="px-4 py-3">Hybrid retrieval via ChromaDB + BM25</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">🧠 Chat Memory</td>
+                                <td class="px-4 py-3">Persistent conversation history per session</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">✍️ Custom Prompts</td>
+                                <td class="px-4 py-3">Per-chat custom AI instructions</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">🎙️ Voice Input</td>
+                                <td class="px-4 py-3">Whisper-powered audio transcription</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">🎭 Talking Avatar</td>
+                                <td class="px-4 py-3">Lip-synced video responses via Wav2Lip + gTTS</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-semibold">🔐 Authentication</td>
+                                <td class="px-4 py-3">Secure user login & registration</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold">💬 Multi-Chat</td>
+                                <td class="px-4 py-3">Create and manage multiple document chats</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🛠️ Tech Stack</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-pink-600 mb-3">Backend</h3>
+                        <p class="text-slate-600 text-sm">Flask, SQLAlchemy, Flask-Login, MySQL</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-pink-600 mb-3">Vector Store & OCR</h3>
+                        <p class="text-slate-600 text-sm">ChromaDB, Tesseract (pytesseract)</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-pink-600 mb-3">AI / ML</h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• <strong>LLM & RAG:</strong> LangChain, Ollama (Llama3)</li>
+                            <li>• <strong>Embeddings:</strong> Ollama</li>
+                            <li>• <strong>Speech-STT:</strong> OpenAI Whisper</li>
+                            <li>• <strong>Text-TTS:</strong> gTTS</li>
+                            <li>• <strong>Avatar:</strong> Wav2Lip</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-pink-600 mb-3">Video Processing</h3>
+                        <p class="text-slate-600 text-sm">FFmpeg, OpenCV</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">💡 Usage Flow</h2>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Register / Login</h3>
+                            <p class="text-sm text-slate-600">Create an account or sign in</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Create New Chat</h3>
+                            <p class="text-sm text-slate-600">Upload a PDF and name your session</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Set Custom Prompt</h3>
+                            <p class="text-sm text-slate-600">(Optional) Add specific AI instructions</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Start Chatting</h3>
+                            <p class="text-sm text-slate-600">Ask anything about your document</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Voice Input</h3>
+                            <p class="text-sm text-slate-600">Use your microphone for hands-free queries</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold">6</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Generate Avatar</h3>
+                            <p class="text-sm text-slate-600">Convert AI responses to a talking avatar video</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📁 Project Structure</h2>
+                <pre class="bg-slate-900 text-slate-100 p-6 rounded-xl overflow-x-auto text-xs font-mono">
+CHATBOT/
+├── app/
+│   ├── chat/
+│   │   └── chat_routes.py          # Chat endpoints
+│   ├── user/
+│   │   └── user_routes.py          # Auth endpoints
+│   ├── Models/
+│   │   ├── User.py                 # User model
+│   │   ├── Chat.py                 # Chat model
+│   │   └── ChatHistory.py          # Chat history model
+│   ├── document_utils/
+│   │   ├── upload_documents.py     # Document processing
+│   │   └── qa_chat.py              # RAG chain setup
+│   ├── DOCUMENTS/                  # Uploaded PDFs
+│   ├── Vector Storage/             # ChromaDB collections
+│   ├── static/                     # CSS, JS, videos
+│   ├── templates/                  # HTML templates
+│   └── __init__.py                 # App factory
+└── run.py                          # Entry point</pre>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">🚀 Key Achievements</h2>
+                <ul class="space-y-3 text-slate-600">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Created platform for interactive document "walkthroughs" using Wav2Lip to sync AI-generated avatars</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Combined LLaMA3, ChromaDB, and Coqui TTS for high-fidelity multimodal learning experience</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Optimized video rendering and audio synchronization using FFmpeg and OpenCV libraries</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Implemented hybrid RAG retrieval combining ChromaDB vector search with BM25 ranking</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Built persistent chat memory system with custom prompt engineering per session</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">🔌 API Routes</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-bold text-slate-900">Method</th>
+                                <th class="px-4 py-3 text-left font-bold text-slate-900">Route</th>
+                                <th class="px-4 py-3 text-left font-bold text-slate-900">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-600">
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">GET/POST</td>
+                                <td class="px-4 py-3 font-mono text-xs">/register</td>
+                                <td class="px-4 py-3">User registration</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">GET/POST</td>
+                                <td class="px-4 py-3 font-mono text-xs">/login</td>
+                                <td class="px-4 py-3">User login</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">GET</td>
+                                <td class="px-4 py-3 font-mono text-xs">/dashboard</td>
+                                <td class="px-4 py-3">Main dashboard</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">POST</td>
+                                <td class="px-4 py-3 font-mono text-xs">/new_chat</td>
+                                <td class="px-4 py-3">Create chat with document upload</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">GET</td>
+                                <td class="px-4 py-3 font-mono text-xs">/start_chat/&lt;chat_id&gt;</td>
+                                <td class="px-4 py-3">Chat interface</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">POST</td>
+                                <td class="px-4 py-3 font-mono text-xs">/start_chat/&lt;chat_id&gt;/stream</td>
+                                <td class="px-4 py-3">Streaming chat responses</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-3 font-mono text-xs">POST</td>
+                                <td class="px-4 py-3 font-mono text-xs">/transcribe</td>
+                                <td class="px-4 py-3">Audio → text transcription</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-xs">POST</td>
+                                <td class="px-4 py-3 font-mono text-xs">/wav2lip</td>
+                                <td class="px-4 py-3">Generate talking avatar video</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="index.html" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

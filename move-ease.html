@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Move-Ease - Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'brand-blue': '#2563eb',
+                        'brand-indigo': '#4f46e5',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body { background-color: #fcfdfe; scroll-behavior: smooth; color: #1e293b; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter uppercase">Hafiz<span class="text-brand-blue">.</span>M</a>
+            <a href="index.html" class="text-sm font-bold text-slate-400 hover:text-brand-blue transition-colors">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-12">
+                <h1 class="text-5xl font-black mb-4 text-slate-900">🚚 Move-Ease</h1>
+                <p class="text-xl text-slate-600 mb-6">AI-Driven Logistics & Vehicle Management Platform</p>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">LangGraph</span>
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">RAG</span>
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">ChromaDB</span>
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">Stripe</span>
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">Whisper</span>
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">Cartesia TTS</span>
+                    <span class="px-4 py-2 bg-brand-blue text-white text-xs font-bold rounded-full">MySQL</span>
+                </div>
+                <a href="https://github.com/HafizMuhammadShah42895/Move-Ease" target="_blank" class="inline-flex items-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    <i class="fab fa-github mr-2"></i> View Repository
+                </a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📌 Description</h2>
+                <p class="text-slate-600 leading-relaxed mb-4">Move-Ease is a comprehensive moving and logistics management system with AI-powered assistance for seamless relocation services. The platform connects customers with truck owners and manages the entire moving process.</p>
+                <p class="text-slate-600 leading-relaxed">Features an intelligent AI agent powered by LangGraph and RAG to assist users with booking inquiries, policy questions, and service information. It streamlines booking management, payment processing, real-time tracking, and staff coordination.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">✨ Key Features</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3 flex items-center gap-2">
+                            <i class="fas fa-user"></i> Customer Portal
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• Book moving services with multiple truck types (Mazda, Shehzore, Truck)</li>
+                            <li>• Real-time truck availability checking</li>
+                            <li>• Secure online payment via Stripe</li>
+                            <li>• Booking tracking and management</li>
+                            <li>• Service reviews and ratings</li>
+                            <li>• Email notifications for booking updates</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3 flex items-center gap-2">
+                            <i class="fas fa-truck"></i> Truck Owner Portal
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• Register and manage trucks</li>
+                            <li>• View booking assignments</li>
+                            <li>• Track earnings and payment history</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3 flex items-center gap-2">
+                            <i class="fas fa-cog"></i> Admin Dashboard
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• Approve/reject bookings and truck registrations</li>
+                            <li>• Assign trucks and staff to bookings</li>
+                            <li>• Manage pricing and truck availability</li>
+                            <li>• View analytics and reports</li>
+                            <li>• Handle cancellations and refunds</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3 flex items-center gap-2">
+                            <i class="fas fa-users"></i> Staff Management
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• Staff assignment to bookings</li>
+                            <li>• Status tracking (Active, Inactive, On Leave)</li>
+                            <li>• Performance reviews</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3 flex items-center gap-2">
+                            <i class="fas fa-robot"></i> AI-Powered Assistant
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• Natural language query handling using LangGraph</li>
+                            <li>• RAG-based knowledge retrieval from company policies</li>
+                            <li>• Voice interaction support via Cartesia</li>
+                            <li>• Multi-language support with Groq LLM</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3 flex items-center gap-2">
+                            <i class="fas fa-bolt"></i> Real-time Features
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 ml-6">
+                            <li>• Live booking tracking</li>
+                            <li>• Automated email notifications</li>
+                            <li>• Dynamic pricing calculation based on distance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🛠️ Tech Stack</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3">Backend</h3>
+                        <p class="text-slate-600 text-sm">Python 3.x, Flask, SQLAlchemy, MySQL, Flask-Mail</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3">Frontend</h3>
+                        <p class="text-slate-600 text-sm">HTML5, CSS3, JavaScript, Bootstrap, Jinja2</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3">AI & Machine Learning</h3>
+                        <p class="text-slate-600 text-sm">LangGraph, LangChain, Groq, ChromaDB, Sentence Transformers, Cartesia</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3">Payment & APIs</h3>
+                        <p class="text-slate-600 text-sm">Stripe, Geopy</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-blue mb-3">Other Tools</h3>
+                        <p class="text-slate-600 text-sm">python-dotenv, WTForms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📁 Project Structure</h2>
+                <pre class="bg-slate-900 text-slate-100 p-6 rounded-xl overflow-x-auto text-xs font-mono">
+Move-Ease/
+├── app/
+│   ├── admin/          # Admin routes and logic
+│   ├── agents/         # AI agent (LangGraph)
+│   ├── auth/           # Authentication routes
+│   ├── customer/       # Customer routes
+│   ├── rag/            # RAG system for AI
+│   ├── static/         # CSS, JS, images
+│   ├── templates/      # HTML templates
+│   ├── voice/          # Voice interaction
+│   ├── __init__.py     # App factory
+│   ├── models.py       # Database models
+│   └── utils.py        # Helper functions
+├── .env.example        # Environment template
+├── config.py           # Configuration
+├── requirements.txt    # Dependencies
+└── run.py              # Application entry point</pre>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">🚀 Key Achievements</h2>
+                <ul class="space-y-3 text-slate-600">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Designed Autonomous Dispatch Agent using LangGraph to automate vehicle matching and route logic</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Integrated Real-time Tracking and Stripe API for secure payment flows and driver payouts</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Developed RAG-based support system using ChromaDB and all-MiniLM-L6-v2 for instant logistics assistance</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Utilized Whisper and Cartesia TTS for high-speed voice-activated coordination between drivers and dispatch</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span>Built comprehensive multi-role system (Customer, Truck Owner, Admin, Staff) with role-based access control</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="index.html" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
