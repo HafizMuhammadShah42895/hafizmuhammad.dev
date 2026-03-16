@@ -77,6 +77,75 @@
 
         .cursor { display: inline-block; width: 3px; background-color: #2563eb; margin-left: 4px; animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.9);
+            box-shadow: 0 8px 32px -8px rgba(0,0,0,0.06);
+        }
+        .project-card:hover { transform: translateY(-8px); }
+
+        .card-movers:hover { box-shadow: 0 30px 60px -15px rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.3); }
+        .card-gourmet:hover { box-shadow: 0 30px 60px -15px rgba(79,70,229,0.15); border-color: rgba(79,70,229,0.3); }
+        .card-doc:hover { box-shadow: 0 30px 60px -15px rgba(219,39,119,0.15); border-color: rgba(219,39,119,0.3); }
+        .card-video:hover { box-shadow: 0 30px 60px -15px rgba(5,150,105,0.15); border-color: rgba(5,150,105,0.3); }
+
+        .card-movers { background: linear-gradient(135deg, rgba(239,246,255,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-gourmet { background: linear-gradient(135deg, rgba(238,242,255,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-doc { background: linear-gradient(135deg, rgba(253,242,248,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-video { background: linear-gradient(135deg, rgba(236,253,245,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+
+        .project-card .card-arrow {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            opacity: 0.3;
+        }
+        .project-card:hover .card-arrow { transform: translate(3px, -3px); opacity: 1; }
+
+        .project-number {
+            font-size: 7rem;
+            font-weight: 900;
+            line-height: 1;
+            opacity: 0.04;
+            position: absolute;
+            bottom: -1rem;
+            right: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: opacity 0.4s ease;
+        }
+        .card-movers .project-number { color: #2563eb; }
+        .card-gourmet .project-number { color: #4f46e5; }
+        .card-doc .project-number { color: #db2777; }
+        .card-video .project-number { color: #059669; }
+        .project-card:hover .project-number { opacity: 0.07; }
+
+        .tag-pill {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .card-movers .tag-pill { background: rgba(37,99,235,0.08); color: #2563eb; }
+        .card-gourmet .tag-pill { background: rgba(79,70,229,0.08); color: #4f46e5; }
+        .card-doc .tag-pill { background: rgba(219,39,119,0.08); color: #db2777; }
+        .card-video .tag-pill { background: rgba(5,150,105,0.08); color: #059669; }
+
+        .card-movers .cta-line { border-color: rgba(37,99,235,0.15); color: #2563eb; }
+        .card-gourmet .cta-line { border-color: rgba(79,70,229,0.15); color: #4f46e5; }
+        .card-doc .cta-line { border-color: rgba(219,39,119,0.15); color: #db2777; }
+        .card-video .cta-line { border-color: rgba(5,150,105,0.15); color: #059669; }
+
+        .card-movers .card-icon-bg { background: rgba(37,99,235,0.08); }
+        .card-gourmet .card-icon-bg { background: rgba(79,70,229,0.08); }
+        .card-doc .card-icon-bg { background: rgba(219,39,119,0.08); }
+        .card-video .card-icon-bg { background: rgba(5,150,105,0.08); }
     </style>
 </head>
 
@@ -94,7 +163,7 @@
                 <li><a href="#projects" class="hover:text-brand-blue transition-colors">Systems</a></li>
                 <li>
                     <a href="Hafiz Muhammad Resume AI & Backend Engineer.pdf" class="px-5 py-2 bg-slate-900 text-white rounded-full hover:bg-brand-blue transition-all">
-                        Download CV
+                        Download Resume
                     </a>
                 </li>
             </ul>
@@ -201,35 +270,133 @@
         </div>
     </section>
 
-    <section id="projects" class="py-32 px-6">
+    <section id="projects" class="py-32 px-6" style="background: linear-gradient(180deg, #f8faff 0%, #f0f4ff 100%);">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 reveal-up">
-                <h2 class="text-4xl font-black tracking-tighter uppercase">Flagship Systems</h2>
-                <p class="text-slate-400 mt-2 font-mono text-[10px] tracking-widest uppercase">Click cards to Zoom-In</p>
+                <p class="font-mono text-[10px] font-bold text-brand-blue uppercase tracking-[0.4em] mb-3">Portfolio</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Flagship Systems</h2>
+                <p class="text-slate-400 mt-3 text-sm">Click any project to explore the full case study</p>
                 <div class="w-12 h-1 bg-brand-blue mx-auto mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="window.location.href='move-ease.html'">
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">Movers AI Logistics</h3>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Autonomous Dispatch Agent using LangGraph for matching and route logic.</p>
-                    <div class="flex gap-4 font-mono text-[10px] font-bold text-brand-blue uppercase"><span>LangGraph</span><span>Stripe</span></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Movers -->
+                <div class="project-card card-movers p-10 reveal-up" onclick="window.location.href='move-ease.html'">
+                    <span class="project-number">01</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🚚</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-brand-blue text-lg"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Logistics</span>
+                            <span class="tag-pill">AI Agent</span>
+                            <span class="tag-pill">2025</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">Move-Ease</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Autonomous Dispatch Agent using LangGraph for vehicle matching, route logic, Stripe payments & real-time tracking.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">LangGraph</span>
+                            <span class="tag-pill">RAG</span>
+                            <span class="tag-pill">Stripe</span>
+                            <span class="tag-pill">ChromaDB</span>
+                            <span class="tag-pill">MySQL</span>
+                        </div>
+                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="window.location.href='gourmet-haven.html'">
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">Gourmet Haven AI</h3>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Cognitive Voice Agent with sub-second latency via Cartesia TTS.</p>
-                    <div class="flex gap-4 font-mono text-[10px] font-bold text-brand-indigo uppercase"><span>LangGraph</span><span>Groq</span></div>
+
+                <!-- Gourmet -->
+                <div class="project-card card-gourmet p-10 reveal-up" onclick="window.location.href='gourmet-haven.html'">
+                    <span class="project-number">02</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🍽️</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-brand-indigo text-lg"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Voice AI</span>
+                            <span class="tag-pill">Restaurant</span>
+                            <span class="tag-pill">2025</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">Gourmet Haven AI</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Cognitive Voice Agent with sub-second latency, multi-language support, RAG pipeline & Stripe payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">LangGraph</span>
+                            <span class="tag-pill">Cartesia TTS</span>
+                            <span class="tag-pill">Groq</span>
+                            <span class="tag-pill">Ollama</span>
+                            <span class="tag-pill">Flask</span>
+                        </div>
+                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="window.location.href='doc-chat.html'">
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">Multimodal Doc Chat</h3>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Interactive avatars using Wav2Lip to walkthrough document queries.</p>
-                    <div class="flex gap-4 font-mono text-[10px] font-bold text-pink-600 uppercase"><span>Wav2Lip</span><span>LLama3</span></div>
+
+                <!-- Doc Chat -->
+                <div class="project-card card-doc p-10 reveal-up" onclick="window.location.href='doc-chat.html'">
+                    <span class="project-number">03</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">📄</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-pink-600 text-lg"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Multimodal</span>
+                            <span class="tag-pill">Avatar AI</span>
+                            <span class="tag-pill">2025</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">Multimodal Doc Chat</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Interactive document walkthroughs with Wav2Lip lip-synced AI avatars, hybrid RAG retrieval & voice input.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">Wav2Lip</span>
+                            <span class="tag-pill">LLaMA3</span>
+                            <span class="tag-pill">ChromaDB</span>
+                            <span class="tag-pill">Whisper</span>
+                            <span class="tag-pill">OpenCV</span>
+                        </div>
+                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card p-10 rounded-[2.5rem] reveal-up cursor-pointer group" onclick="window.location.href='ai-video-assistant.html'">
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-brand-blue transition-colors">AI Video Assistant</h3>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-2">Automated diarization and transcription indexing with Whisper AI.</p>
-                    <div class="flex gap-4 font-mono text-[10px] font-bold text-emerald-600 uppercase"><span>Whisper AI</span><span>ChromaDB</span></div>
+
+                <!-- Video Assistant -->
+                <div class="project-card card-video p-10 reveal-up" onclick="window.location.href='ai-video-assistant.html'">
+                    <span class="project-number">04</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🎬</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-emerald-600 text-lg"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Video AI</span>
+                            <span class="tag-pill">Diarization</span>
+                            <span class="tag-pill">2025</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">AI Video Assistant</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">95% accurate transcription, automated speaker diarization, semantic indexing & AI-powered video Q&A chat.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">Whisper AI</span>
+                            <span class="tag-pill">PyannoteAI</span>
+                            <span class="tag-pill">ChromaDB</span>
+                            <span class="tag-pill">Ollama</span>
+                            <span class="tag-pill">Flask</span>
+                        </div>
+                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
