@@ -95,15 +95,19 @@
         .card-gourmet:hover { box-shadow: 0 30px 60px -15px rgba(79,70,229,0.15); border-color: rgba(79,70,229,0.3); }
         .card-doc:hover { box-shadow: 0 30px 60px -15px rgba(219,39,119,0.15); border-color: rgba(219,39,119,0.3); }
         .card-video:hover { box-shadow: 0 30px 60px -15px rgba(5,150,105,0.15); border-color: rgba(5,150,105,0.3); }
+        .card-caller:hover { box-shadow: 0 30px 60px -15px rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); }
+        .card-matrimony:hover { box-shadow: 0 30px 60px -15px rgba(225,29,72,0.15); border-color: rgba(225,29,72,0.3); }
 
         .card-movers { background: linear-gradient(135deg, rgba(239,246,255,0.8) 0%, rgba(255,255,255,0.7) 100%); }
         .card-gourmet { background: linear-gradient(135deg, rgba(238,242,255,0.8) 0%, rgba(255,255,255,0.7) 100%); }
         .card-doc { background: linear-gradient(135deg, rgba(253,242,248,0.8) 0%, rgba(255,255,255,0.7) 100%); }
         .card-video { background: linear-gradient(135deg, rgba(236,253,245,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-caller { background: linear-gradient(135deg, rgba(237,233,254,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-matrimony { background: linear-gradient(135deg, rgba(255,228,230,0.8) 0%, rgba(255,255,255,0.7) 100%); }
 
         .project-card .card-arrow {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-            opacity: 0.3;
+            opacity: 0.7;
         }
         .project-card:hover .card-arrow { transform: translate(3px, -3px); opacity: 1; }
 
@@ -122,6 +126,8 @@
         .card-gourmet .project-number { color: #4f46e5; }
         .card-doc .project-number { color: #db2777; }
         .card-video .project-number { color: #059669; }
+        .card-caller .project-number { color: #7c3aed; }
+        .card-matrimony .project-number { color: #e11d48; }
         .project-card:hover .project-number { opacity: 0.07; }
 
         .tag-pill {
@@ -136,16 +142,37 @@
         .card-gourmet .tag-pill { background: rgba(79,70,229,0.08); color: #4f46e5; }
         .card-doc .tag-pill { background: rgba(219,39,119,0.08); color: #db2777; }
         .card-video .tag-pill { background: rgba(5,150,105,0.08); color: #059669; }
+        .card-caller .tag-pill { background: rgba(124,58,237,0.08); color: #7c3aed; }
+        .card-matrimony .tag-pill { background: rgba(225,29,72,0.08); color: #e11d48; }
 
-        .card-movers .cta-line { border-color: rgba(37,99,235,0.15); color: #2563eb; }
-        .card-gourmet .cta-line { border-color: rgba(79,70,229,0.15); color: #4f46e5; }
-        .card-doc .cta-line { border-color: rgba(219,39,119,0.15); color: #db2777; }
-        .card-video .cta-line { border-color: rgba(5,150,105,0.15); color: #059669; }
+        /* CTA button — always looks like a clickable button */
+        .cta-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 0.6rem 1.25rem;
+            border-radius: 999px;
+            border: 2px solid;
+            margin-top: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.02em;
+        }
+        .project-card:hover .cta-line { transform: translateX(3px); }
+        .card-movers .cta-line  { border-color: rgba(37,99,235,0.35);  color: #2563eb;  background: rgba(37,99,235,0.06); }
+        .card-gourmet .cta-line { border-color: rgba(79,70,229,0.35);  color: #4f46e5;  background: rgba(79,70,229,0.06); }
+        .card-doc .cta-line     { border-color: rgba(219,39,119,0.35); color: #db2777;  background: rgba(219,39,119,0.06); }
+        .card-video .cta-line   { border-color: rgba(5,150,105,0.35);  color: #059669;  background: rgba(5,150,105,0.06); }
+        .card-caller .cta-line  { border-color: rgba(124,58,237,0.35); color: #7c3aed;  background: rgba(124,58,237,0.06); }
+        .card-matrimony .cta-line { border-color: rgba(225,29,72,0.35); color: #e11d48; background: rgba(225,29,72,0.06); }
 
         .card-movers .card-icon-bg { background: rgba(37,99,235,0.08); }
         .card-gourmet .card-icon-bg { background: rgba(79,70,229,0.08); }
         .card-doc .card-icon-bg { background: rgba(219,39,119,0.08); }
         .card-video .card-icon-bg { background: rgba(5,150,105,0.08); }
+        .card-caller .card-icon-bg { background: rgba(124,58,237,0.08); }
+        .card-matrimony .card-icon-bg { background: rgba(225,29,72,0.08); }
     </style>
 </head>
 
@@ -197,44 +224,59 @@
                 <div class="w-12 h-1 bg-brand-blue mx-auto mt-4"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="reveal-up">
-                    <h3 class="text-xs font-black text-brand-blue uppercase tracking-widest mb-6">AI & LLM Orchestration</h3>
+                    <h3 class="text-xs font-black text-brand-blue uppercase tracking-widest mb-6">AI & Agentic Systems</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-box">LangChain</span><span class="skill-box">LangGraph</span>
-                        <span class="skill-box">RAG</span><span class="skill-box">Ollama</span>
-                        <span class="skill-box">Groq</span><span class="skill-box">ChromaDB</span>
+                        <span class="skill-box">RAG Pipelines</span><span class="skill-box">ChromaDB</span>
+                        <span class="skill-box">Groq API</span><span class="skill-box">Ollama</span>
+                        <span class="skill-box">Whisper AI</span><span class="skill-box">OpenCV</span>
                     </div>
                 </div>
                 <div class="reveal-up">
-                    <h3 class="text-xs font-black text-brand-indigo uppercase tracking-widest mb-6">Audio & Vision</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-box">Whisper AI</span><span class="skill-box">PyannoteAI</span>
-                        <span class="skill-box">Wav2Lip</span><span class="skill-box">OpenCV</span>
-                        <span class="skill-box">Cartesia TTS</span>
-                    </div>
-                </div>
-                <div class="reveal-up">
-                    <h3 class="text-xs font-black text-emerald-600 uppercase tracking-widest mb-6">Backend & Engineering</h3>
+                    <h3 class="text-xs font-black text-brand-indigo uppercase tracking-widest mb-6">Backend</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-box">Python</span><span class="skill-box">FastAPI</span>
-                        <span class="skill-box">Flask</span><span class="skill-box">Django</span>
-                        <span class="skill-box">Stripe API</span><span class="skill-box">Linux</span>
+                        <span class="skill-box">Django</span><span class="skill-box">Flask</span>
                     </div>
                 </div>
                 <div class="reveal-up">
-                    <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Databases & Core</h3>
+                    <h3 class="text-xs font-black text-emerald-600 uppercase tracking-widest mb-6">Frontend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">React</span><span class="skill-box">JavaScript</span>
+                        <span class="skill-box">HTML & CSS</span><span class="skill-box">WebSockets</span>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Databases</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-box">MySQL</span><span class="skill-box">SQLAlchemy</span>
-                        <span class="skill-box">Vector DBs</span><span class="skill-box">OOP</span>
-                        <span class="skill-box">DSA</span>
+                        <span class="skill-box">ChromaDB</span>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-rose-500 uppercase tracking-widest mb-6">Dev Practices</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">OOP</span><span class="skill-box">MVC Architecture</span>
+                        <span class="skill-box">RESTful APIs</span><span class="skill-box">Git & GitHub</span>
+                        <span class="skill-box">Linux Deployment</span>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-black text-amber-500 uppercase tracking-widest mb-6">Certifications</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-box">Databases & SQL (IBM)</span>
+                        <span class="skill-box">OOP in Java (Oracle)</span>
+                        <span class="skill-box">Design Patterns</span>
+                        <span class="skill-box">Linux Management</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="py-32 px-6 bg-slate-50">
+    <section id="experience" class="py-16 px-6 bg-slate-50">
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row gap-16">
                 <div class="md:w-1/3 reveal-up">
@@ -249,30 +291,21 @@
                         </div>
                         <p class="text-brand-indigo font-bold text-sm mb-4">PureLogics, Lahore</p>
                         <ul class="space-y-3 text-slate-500 text-sm">
-                            <li>• Architecting real-time streaming backends using FastAPI.</li>
-                            <li>• Applying OOP principles to integrate Groq and Ollama.</li>
-                            <li>• Optimizing server-side process management for AI tasks.</li>
+                            <li>• Build scalable Python web apps using Django and FastAPI with MVC architecture and clean coding standards in a team environment.</li>
+                            <li>• Design RESTful API endpoints and collaborate with frontend developers to integrate server-side logic with user-facing features.</li>
+                            <li>• Independently build AI service modules and LangChain/LangGraph-powered agentic pipelines; participate in code reviews.</li>
+                            <li>• Manage MySQL databases, deploy applications on Linux servers, and use Git for version control and team collaboration.</li>
                         </ul>
                     </div>
-                    <div class="reveal-up exp-dot">
-                        <div class="flex justify-between items-center mb-2">
-                            <h3 class="text-xl font-bold text-slate-900">AI Video Assistant Developer</h3>
-                        </div>
-                        <p class="text-slate-500 font-bold text-sm mb-4">PureLogics (Internship Project)</p>
-                        <ul class="space-y-3 text-slate-500 text-sm">
-                            <li>• Built an end-to-end video processing pipeline.</li>
-                            <li>• Used Whisper AI and PyannoteAI for speaker identification.</li>
-                            <li>• Integrated ChromaDB for semantic indexing.</li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-32 px-6" style="background: linear-gradient(180deg, #f8faff 0%, #f0f4ff 100%);">
+    <section id="projects" class="py-16 px-6" style="background: linear-gradient(180deg, #f8faff 0%, #f0f4ff 100%);">  
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 reveal-up">
+            <div class="text-center mb-10 reveal-up">
                 <p class="font-mono text-[10px] font-bold text-brand-blue uppercase tracking-[0.4em] mb-3">Portfolio</p>
                 <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Flagship Systems</h2>
                 <p class="text-slate-400 mt-3 text-sm">Click any project to explore the full case study</p>
@@ -281,9 +314,67 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
+                <!-- CallerAI -->
+                <div class="project-card card-caller p-10 reveal-up" onclick="window.location.href='caller-ai.html'">
+                    <span class="project-number">01</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">📞</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-lg" style="color:#7c3aed"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Voice AI</span>
+                            <span class="tag-pill">SaaS</span>
+                            <span class="tag-pill">2025</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">CallerAI</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Self-hosted AI cold calling SaaS — intelligent voice agents, built-in CRM, RAG knowledge base, Telnyx PSTN & post-call AI analysis.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">FastAPI</span>
+                            <span class="tag-pill">LLaMA 3.1</span>
+                            <span class="tag-pill">Whisper v3</span>
+                            <span class="tag-pill">Cartesia TTS</span>
+                            <span class="tag-pill">ChromaDB</span>
+                        </div>
+                        <div class="cta-line">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Matrimony -->
+                <div class="project-card card-matrimony p-10 reveal-up" onclick="window.location.href='premium-matrimony.html'">
+                    <span class="project-number">02</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">💍</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-lg" style="color:#e11d48"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Matrimonial</span>
+                            <span class="tag-pill">AI Matching</span>
+                            <span class="tag-pill">2025</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">Premium Matrimony</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">AI-powered matrimonial platform with vector-based matching, CNIC verification, real-time chat, meeting scheduler & full admin panel.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">React + Vite</span>
+                            <span class="tag-pill">FastAPI</span>
+                            <span class="tag-pill">ChromaDB</span>
+                            <span class="tag-pill">WebSockets</span>
+                            <span class="tag-pill">Groq</span>
+                        </div>
+                        <div class="cta-line">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Movers -->
                 <div class="project-card card-movers p-10 reveal-up" onclick="window.location.href='move-ease.html'">
-                    <span class="project-number">01</span>
+                    <span class="project-number">03</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🚚</div>
@@ -303,7 +394,7 @@
                             <span class="tag-pill">ChromaDB</span>
                             <span class="tag-pill">MySQL</span>
                         </div>
-                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                        <div class="cta-line">
                             <span>View Full Case Study</span>
                             <i class="fas fa-arrow-right"></i>
                         </div>
@@ -312,7 +403,7 @@
 
                 <!-- Gourmet -->
                 <div class="project-card card-gourmet p-10 reveal-up" onclick="window.location.href='gourmet-haven.html'">
-                    <span class="project-number">02</span>
+                    <span class="project-number">04</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🍽️</div>
@@ -332,7 +423,7 @@
                             <span class="tag-pill">Ollama</span>
                             <span class="tag-pill">Flask</span>
                         </div>
-                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                        <div class="cta-line">
                             <span>View Full Case Study</span>
                             <i class="fas fa-arrow-right"></i>
                         </div>
@@ -341,7 +432,7 @@
 
                 <!-- Doc Chat -->
                 <div class="project-card card-doc p-10 reveal-up" onclick="window.location.href='doc-chat.html'">
-                    <span class="project-number">03</span>
+                    <span class="project-number">05</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">📄</div>
@@ -361,7 +452,7 @@
                             <span class="tag-pill">Whisper</span>
                             <span class="tag-pill">OpenCV</span>
                         </div>
-                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                        <div class="cta-line">
                             <span>View Full Case Study</span>
                             <i class="fas fa-arrow-right"></i>
                         </div>
@@ -370,7 +461,7 @@
 
                 <!-- Video Assistant -->
                 <div class="project-card card-video p-10 reveal-up" onclick="window.location.href='ai-video-assistant.html'">
-                    <span class="project-number">04</span>
+                    <span class="project-number">06</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🎬</div>
@@ -390,7 +481,7 @@
                             <span class="tag-pill">Ollama</span>
                             <span class="tag-pill">Flask</span>
                         </div>
-                        <div class="cta-line flex items-center gap-2 font-bold text-sm border-t pt-5">
+                        <div class="cta-line">
                             <span>View Full Case Study</span>
                             <i class="fas fa-arrow-right"></i>
                         </div>

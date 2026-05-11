@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CallerAI - AI-Powered Cold Calling Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { 'sans': ['Plus Jakarta Sans','sans-serif'], 'mono': ['JetBrains Mono','monospace'] }, colors: { 'brand-blue': '#2563eb' } } }
+        };
+    </script>
+    <style>
+        body { background-color: #fcfdfe; scroll-behavior: smooth; color: #1e293b; }
+        .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.04); }
+        .accent { color: #7c3aed; }
+        .accent-bg { background-color: #7c3aed; }
+        .hero-bg { background: linear-gradient(135deg, rgba(237,233,254,0.6) 0%, rgba(255,255,255,0.8) 100%); }
+        .check { color: #16a34a; } .cross { color: #dc2626; }
+        table thead tr { background: #f8f7ff; }
+        table td, table th { border-bottom: 1px solid #f1f5f9; }
+    </style>
+</head>
+<body class="font-sans">
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter uppercase">Hafiz<span class="text-brand-blue">.</span>M</a>
+            <a href="index.html" class="text-sm font-bold text-slate-400 hover:text-brand-blue transition-colors">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Hero -->
+            <div class="hero-bg rounded-3xl p-10 mb-8 border border-purple-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-5xl">📞</span>
+                    <div>
+                        <span class="text-xs font-black uppercase tracking-widest accent">AI-Powered SaaS · 2025</span>
+                        <h1 class="text-5xl font-black text-slate-900 tracking-tighter">CallerAI</h1>
+                    </div>
+                </div>
+                <p class="text-xl text-slate-600 mb-6 max-w-3xl leading-relaxed">A fully self-hosted AI-powered cold calling platform — intelligent voice agents that hold natural two-way conversations, use your product knowledge, handle objections, and log every interaction.</p>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">FastAPI</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Groq LLaMA 3.1</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Whisper Large v3</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Cartesia TTS</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">ChromaDB RAG</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Telnyx PSTN</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">WebSocket</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">MySQL</span>
+                </div>
+                <a href="https://github.com/HafizMuhammadShah42895" target="_blank" class="inline-flex items-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    <i class="fab fa-github mr-2"></i> View GitHub Profile
+                </a>
+            </div>
+
+            <!-- What is CallerAI -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📌 What is CallerAI?</h2>
+                <p class="text-slate-600 leading-relaxed mb-4">CallerAI is a custom-built AI-powered cold calling platform for businesses that want to automate outreach without giving up privacy or brand identity. It provides an always-available intelligent AI voice agent that holds natural two-way conversations with real customers, answers product questions, handles objections, detects farewells, and logs everything.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="rounded-2xl p-5 bg-purple-50 border border-purple-100">
+                        <div class="flex items-center gap-2 mb-2 font-bold accent"><i class="fas fa-globe"></i> Web-Based Call</div>
+                        <p class="text-slate-600 text-sm">Share a unique secure link with the customer. They open it in their browser and speak directly to the AI. No phone line or app needed.</p>
+                    </div>
+                    <div class="rounded-2xl p-5 bg-purple-50 border border-purple-100">
+                        <div class="flex items-center gap-2 mb-2 font-bold accent"><i class="fas fa-phone"></i> Direct Phone Call</div>
+                        <p class="text-slate-600 text-sm">The system dials the customer's actual phone number and starts a live AI-powered conversation via Telnyx PSTN integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem & Solution -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🎯 Problem Solved</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h3 class="font-black text-slate-700 text-xs uppercase tracking-widest mb-4">Traditional Challenges</h3>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Human agents are expensive — salaries, training, benefits</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Inconsistent pitches and tone across agents</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Limited to business hours — missed off-hours leads</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>High burnout from repetitive cold calling</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>No transcript or call visibility</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Customer data privacy risks with 3rd-party services</span></div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-black text-slate-700 text-xs uppercase tracking-widest mb-4">CallerAI Solutions</h3>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Always-on AI agent — zero salary cost</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Consistent pitch and tone on every single call</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>24/7 availability — never misses a lead</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>AI handles first-contact; humans only engage interested leads</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Full call transcripts stored securely in your own DB</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Fully self-hosted — data never leaves your infrastructure</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">✨ All Platform Features</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-lock"></i> User Authentication & Data Isolation</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Each business gets its own account; all data completely isolated per user</li>
+                            <li>• No cross-account data access is possible under any circumstance</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-building"></i> Company Profile & AI Knowledge Base</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Business fills in: industry, products, pricing, target market, USPs, and FAQs</li>
+                            <li>• All data automatically embedded into a private ChromaDB vector knowledge base</li>
+                            <li>• The AI uses this knowledge base during every live call via RAG retrieval</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-robot"></i> AI Agent Configuration</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Customize agent name (e.g. Alex, Zara, Sara)</li>
+                            <li>• Choose call tone: Professional, Friendly, Assertive, or Consultative</li>
+                            <li>• Select language: English, Urdu, or Arabic</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-address-book"></i> Built-in CRM — Customer & Lead Management</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Add customers with name, phone, email, company, notes</li>
+                            <li>• Write a custom campaign pitch per individual customer</li>
+                            <li>• Track lead status: New → Contacted → Interested → Closed</li>
+                            <li>• Filter, search, and view full contact history</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-microphone"></i> Real-Time AI Voice Pipeline</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• STT: Whisper Large v3 Turbo (Groq) for speech-to-text</li>
+                            <li>• LLM: LLaMA 3.1 (Groq) streamed token-by-token</li>
+                            <li>• TTS: Cartesia Sonic-2 streamed in real time — sub-second latency</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-brain"></i> Conversation Memory & Scope Guard</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Tracks products discussed, prices quoted, quantities across turns — no contradictions</li>
+                            <li>• Scope Guard: AI strictly stays on business topics, politely deflects unrelated questions</li>
+                            <li>• Interruption detection: AI stops and listens when customer starts speaking</li>
+                            <li>• Farewell detection: polite closing when customer signals disinterest or goodbye</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-chart-bar"></i> AI-Powered Call Analysis & Insights Dashboard</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Auto-generated plain-English call summary (2–3 sentences) after each call</li>
+                            <li>• Sentiment rating: Positive, Neutral, or Negative</li>
+                            <li>• Outcome label: Interested, Not Interested, Requested Follow-up, or Hung Up Early</li>
+                            <li>• Dashboard shows all call logs paginated and sorted by most recent</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Comparison -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📊 Market Comparison</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr>
+                            <th class="text-left p-3 font-black text-slate-700">Feature</th>
+                            <th class="p-3 font-black accent">CallerAI</th>
+                            <th class="p-3 font-bold text-slate-400">Retell AI</th>
+                            <th class="p-3 font-bold text-slate-400">Bland AI</th>
+                            <th class="p-3 font-bold text-slate-400">Vapi</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr><td class="p-3 font-semibold">Cost</td><td class="p-3 text-center font-bold text-green-600">Very Low (self-hosted)</td><td class="p-3 text-center text-slate-400">High $$$</td><td class="p-3 text-center text-slate-400">Per-minute</td><td class="p-3 text-center text-slate-400">High per-min</td></tr>
+                            <tr><td class="p-3 font-semibold">Data Privacy</td><td class="p-3 text-center font-bold text-green-600">Full — own server</td><td class="p-3 text-center text-slate-400">Retell cloud</td><td class="p-3 text-center text-slate-400">Bland cloud</td><td class="p-3 text-center text-slate-400">Cloud-based</td></tr>
+                            <tr><td class="p-3 font-semibold">RAG / Knowledge Base</td><td class="p-3 text-center check font-bold"><i class="fas fa-check"></i> ChromaDB</td><td class="p-3 text-center cross"><i class="fas fa-times"></i></td><td class="p-3 text-center cross"><i class="fas fa-times"></i></td><td class="p-3 text-center cross"><i class="fas fa-times"></i></td></tr>
+                            <tr><td class="p-3 font-semibold">Web Browser Calling</td><td class="p-3 text-center check font-bold"><i class="fas fa-check"></i> WebSocket</td><td class="p-3 text-center cross">Phone only</td><td class="p-3 text-center cross">Phone only</td><td class="p-3 text-center text-slate-400">Partial</td></tr>
+                            <tr><td class="p-3 font-semibold">Built-in CRM</td><td class="p-3 text-center check font-bold"><i class="fas fa-check"></i> Full</td><td class="p-3 text-center cross"><i class="fas fa-times"></i></td><td class="p-3 text-center cross"><i class="fas fa-times"></i></td><td class="p-3 text-center cross"><i class="fas fa-times"></i></td></tr>
+                            <tr><td class="p-3 font-semibold">Data Ownership</td><td class="p-3 text-center check font-bold">You own everything</td><td class="p-3 text-center cross">Locked</td><td class="p-3 text-center cross">Locked</td><td class="p-3 text-center cross">Locked</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🛠️ Tech Stack</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div><h3 class="font-bold accent mb-2">Backend</h3><p class="text-slate-600 text-sm">Python, FastAPI, SQLAlchemy, MySQL</p></div>
+                    <div><h3 class="font-bold accent mb-2">AI Pipeline</h3><p class="text-slate-600 text-sm">Groq — Whisper Large v3 Turbo (STT) + LLaMA 3.1 (LLM), Cartesia Sonic-2 (TTS)</p></div>
+                    <div><h3 class="font-bold accent mb-2">Knowledge Base</h3><p class="text-slate-600 text-sm">ChromaDB (RAG), Sentence Transformers embeddings</p></div>
+                    <div><h3 class="font-bold accent mb-2">Telephony & Real-Time</h3><p class="text-slate-600 text-sm">Telnyx PSTN, WebSockets, JWT Authentication</p></div>
+                    <div><h3 class="font-bold accent mb-2">Frontend</h3><p class="text-slate-600 text-sm">HTML5, CSS3, JavaScript, Jinja2 templates</p></div>
+                    <div><h3 class="font-bold accent mb-2">Architecture</h3><p class="text-slate-600 text-sm">Multi-tenant SaaS, SMTP Email, python-dotenv</p></div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">🚀 Key Achievements</h2>
+                <ul class="space-y-3 text-slate-600">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Built a fully self-hosted multi-tenant SaaS with complete per-user data isolation</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Engineered a real-time AI voice pipeline (STT → LLM → TTS) with sub-second end-to-end latency</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Implemented RAG with ChromaDB so AI agents speak with accurate, business-specific knowledge on every call</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Integrated Telnyx PSTN for real phone dialing alongside WebSocket-based browser calling</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Built automatic post-call AI analysis: plain-English summary, sentiment rating, and outcome classification</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Delivered built-in CRM with per-lead custom campaign pitches and full lead lifecycle tracking</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Designed interruption detection, farewell detection, and scope guard for natural, safe conversations</span></li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="index.html" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

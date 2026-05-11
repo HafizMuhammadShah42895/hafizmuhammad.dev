@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Matrimony - AI-Powered Matrimonial Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { 'sans': ['Plus Jakarta Sans','sans-serif'], 'mono': ['JetBrains Mono','monospace'] }, colors: { 'brand-blue': '#2563eb' } } }
+        };
+    </script>
+    <style>
+        body { background-color: #fcfdfe; scroll-behavior: smooth; color: #1e293b; }
+        .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.04); }
+        .accent { color: #e11d48; }
+        .accent-bg { background-color: #e11d48; }
+        .hero-bg { background: linear-gradient(135deg, rgba(255,228,230,0.6) 0%, rgba(255,255,255,0.8) 100%); }
+    </style>
+</head>
+<body class="font-sans">
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter uppercase">Hafiz<span class="text-brand-blue">.</span>M</a>
+            <a href="index.html" class="text-sm font-bold text-slate-400 hover:text-brand-blue transition-colors">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Hero -->
+            <div class="hero-bg rounded-3xl p-10 mb-8 border border-rose-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-5xl">💍</span>
+                    <div>
+                        <span class="text-xs font-black uppercase tracking-widest accent">AI Matrimonial Platform · 2025</span>
+                        <h1 class="text-5xl font-black text-slate-900 tracking-tighter">Premium Matrimony</h1>
+                    </div>
+                </div>
+                <p class="text-xl text-slate-600 mb-6 max-w-3xl leading-relaxed">A modern AI-powered matrimonial platform for the Pakistani and South Asian market — bringing the traditional rishta process into the digital age with intelligent matching, real-time chat, CNIC verification, and a full admin panel.</p>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">FastAPI</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">React + Vite</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">MySQL</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Groq LLaMA 3.3</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">ChromaDB RAG</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">SentenceTransformers</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">WebSockets</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">JWT Auth</span>
+                </div>
+                <a href="https://github.com/HafizMuhammadShah42895" target="_blank" class="inline-flex items-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    <i class="fab fa-github mr-2"></i> View GitHub Profile
+                </a>
+            </div>
+
+            <!-- Description -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📌 What is Premium Matrimony?</h2>
+                <p class="text-slate-600 leading-relaxed mb-4">Premium Matrimony is a modern online marriage platform designed specifically for Pakistani and South Asian users. It brings the traditional rishta process into the digital age — allowing users to create detailed profiles, discover compatible partners using AI, connect and chat in real time, and schedule meetings, all from one place.</p>
+                <p class="text-slate-600 leading-relaxed">What sets it apart is its use of Artificial Intelligence for intelligent vector-based matching, CNIC identity verification with OCR, and a RAG-powered help chatbot. A complete Admin Panel gives administrators full control over user management, report resolution, and CNIC verification approvals.</p>
+            </div>
+
+            <!-- User Features -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">✨ User Features</h2>
+                <div class="space-y-6">
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-user-plus"></i> Registration, Login & Security</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Sign up with username, email, and password</li>
+                            <li>• 6-digit OTP sent to email for account verification</li>
+                            <li>• Password reset via OTP email flow</li>
+                            <li>• JWT-secured login sessions (industry standard)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-id-card"></i> Detailed Profile Creation</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Basic: full name, gender, date of birth, profile type (Individual or Guardian)</li>
+                            <li>• Physical: height, weight, body type, complexion, disability</li>
+                            <li>• Education: degree, field, university, graduation year</li>
+                            <li>• Career: profession, job title, company, experience, work mode</li>
+                            <li>• Financial: income range and currency</li>
+                            <li>• Religion & Lifestyle: religion, sect, caste, family values, lifestyle habits</li>
+                            <li>• Personality: personal bio, hobbies, personality tags</li>
+                            <li>• Privacy: Public or Private visibility; profile picture + photo gallery</li>
+                            <li>• Profile completion percentage shown on dashboard</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-heart"></i> Partner Preferences</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Preferred age range, marital status, location (city/country)</li>
+                            <li>• Education level, profession, income range</li>
+                            <li>• Religion, caste, lifestyle, family values</li>
+                            <li>• Physical preferences: height range, body type, complexion</li>
+                            <li>• Most valued qualities, deal-breakers, and optional personal message</li>
+                            <li>• Drives the AI matching system</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-magic"></i> AI-Powered Matching</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Every user profile is converted to a mathematical vector (SentenceTransformers)</li>
+                            <li>• Preference vector is compared against candidate profile vectors via ChromaDB</li>
+                            <li>• Top 5 best matches suggested automatically on the dashboard</li>
+                            <li>• AI generates a natural-language explanation of why each pair is compatible</li>
+                            <li>• Learns from feedback: liked → shifts preference toward that type; disliked → shifts away</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-search"></i> Search & Browse</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Filter profiles by age, city, country, education, profession, caste, religion</li>
+                            <li>• Blocked users automatically hidden from search results</li>
+                            <li>• Each profile card shows current connection status</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-paper-plane"></i> Interest System (Rishta Requests)</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Send a formal interest request to any profile</li>
+                            <li>• Receiver can accept or reject</li>
+                            <li>• Mutual acceptance creates a matched connection</li>
+                            <li>• Three organized tabs: Received, Sent, Matches</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-comments"></i> Real-Time Messaging</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Only matched users can message each other</li>
+                            <li>• Instant delivery via WebSockets — no page refresh needed</li>
+                            <li>• Text, images, videos, and documents (up to 10 MB)</li>
+                            <li>• Unread message counts on dashboard; auto-marked read on open</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-calendar-check"></i> Meeting Scheduler</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Schedule formal meetings with title, description, date, time, and optional location</li>
+                            <li>• Other party can accept, reject, or cancel</li>
+                            <li>• Four tabs: Received, Sent, Upcoming, History</li>
+                            <li>• Upcoming meeting count shown on dashboard</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-id-badge"></i> CNIC Verification</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Upload front and back of Pakistani CNIC</li>
+                            <li>• OCR (Pytesseract + EasyOCR) reads text from the images</li>
+                            <li>• AI model parses raw OCR text to extract: name, DOB, CNIC number, gender, nationality</li>
+                            <li>• Admin reviews with side-by-side profile comparison, then approves or rejects</li>
+                            <li>• Verified profiles receive a visible approved badge and appear in search results</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-ban"></i> Blocking, Reporting & Visitors</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Block any user — they disappear from all parts of the platform (search, messages, meetings, visitors)</li>
+                            <li>• View all blocked users and unblock at any time</li>
+                            <li>• Report profiles for fake accounts, spam, harassment, or inappropriate content</li>
+                            <li>• Profile visitor tracking — see who viewed your profile and when</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-robot"></i> AI Help Chatbot (RAG + Voice)</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Powered by RAG — answers from admin-uploaded documents (PDFs, FAQs, guidelines)</li>
+                            <li>• Voice interaction: speak to the bot, audio is converted to text automatically</li>
+                            <li>• Bot generates response and reads it aloud via text-to-speech</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-tachometer-alt"></i> User Dashboard</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Profile completion percentage with prompts to fill missing info</li>
+                            <li>• Profile visitors count, pending interest requests, unread messages, upcoming meetings</li>
+                            <li>• AI-suggested top matches shown at a glance</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-gavel"></i> Account Suspension & Appeals</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Suspended users receive email explaining the reason</li>
+                            <li>• Users can submit an appeal with a written explanation</li>
+                            <li>• Admin reviews and either reinstates (email notification sent) or keeps suspension</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Admin Features -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🛡️ Admin Panel Features</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-chart-line"></i> Dashboard & Analytics (30-day history)</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Daily new registrations, gender distribution, total matches made</li>
+                            <li>• Messages sent, profile views, meetings scheduled</li>
+                            <li>• Quick stats: total users, new users (24h), pending reports, pending verifications</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-users-cog"></i> User Management</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• View all users with profile info and verification status</li>
+                            <li>• Approve, ban (with reason), unban, or permanently delete users</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-flag"></i> Report Management</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Reports organized into Pending, Resolved, Dismissed tabs</li>
+                            <li>• Full reported user profile shown alongside verification status and past report history</li>
+                            <li>• Resolve, dismiss, or ban directly from the report page; add internal notes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-id-card"></i> CNIC Verification Management</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• View uploaded CNIC images alongside AI-extracted data</li>
+                            <li>• Side-by-side comparison with user profile: matching fields highlighted</li>
+                            <li>• Manually re-trigger AI extraction if needed; approve or reject verification</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-book"></i> AI Knowledge Base Management</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Upload PDFs and documents to the chatbot's RAG knowledge base</li>
+                            <li>• Documents processed and stored in ChromaDB vector database</li>
+                            <li>• Option to clear and refresh the entire knowledge base</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🛠️ Tech Stack</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div><h3 class="font-bold accent mb-2">Backend</h3><p class="text-slate-600 text-sm">Python, FastAPI, MySQL, JWT Authentication, SMTP via Gmail</p></div>
+                    <div><h3 class="font-bold accent mb-2">Frontend</h3><p class="text-slate-600 text-sm">React.js with Vite, Tailwind CSS, Bootstrap, Framer Motion animations</p></div>
+                    <div><h3 class="font-bold accent mb-2">AI & Matching</h3><p class="text-slate-600 text-sm">Groq API — Llama 3.3 70B, SentenceTransformers (local embeddings), ChromaDB (local vector DB)</p></div>
+                    <div><h3 class="font-bold accent mb-2">CNIC Verification</h3><p class="text-slate-600 text-sm">Pytesseract + EasyOCR for text extraction, AI parsing of OCR output</p></div>
+                    <div><h3 class="font-bold accent mb-2">Real-Time</h3><p class="text-slate-600 text-sm">WebSockets for instant messaging; no polling or page refresh</p></div>
+                    <div><h3 class="font-bold accent mb-2">Chatbot</h3><p class="text-slate-600 text-sm">RAG pipeline with ChromaDB, voice input (STT) + TTS response</p></div>
+                </div>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">🚀 Key Achievements</h2>
+                <ul class="space-y-3 text-slate-600">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Engineered vector-based AI matching using SentenceTransformers + ChromaDB with adaptive feedback learning</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Built CNIC verification pipeline: OCR extraction → AI parsing → admin review with side-by-side comparison</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Implemented real-time messaging via WebSockets with media sharing (images, videos, documents)</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Delivered a full React.js frontend with Framer Motion animations and responsive design</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Built a RAG-powered chatbot with voice input and text-to-speech output from admin-uploaded documents</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Delivered comprehensive admin panel: analytics, user management, report resolution, and verification workflows</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Implemented adaptive preference learning: the AI matching improves with every like/dislike interaction</span></li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="index.html" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
