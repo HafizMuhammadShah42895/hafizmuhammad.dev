@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EnrollAI - AI-Powered Student Enrollment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { 'sans': ['Plus Jakarta Sans','sans-serif'], 'mono': ['JetBrains Mono','monospace'] }, colors: { 'brand-blue': '#2563eb' } } }
+        };
+    </script>
+    <style>
+        body { background-color: #fcfdfe; scroll-behavior: smooth; color: #1e293b; }
+        .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.04); }
+        .accent { color: #0891b2; }
+        .accent-bg { background-color: #0891b2; }
+        .hero-bg { background: linear-gradient(135deg, rgba(207,250,254,0.6) 0%, rgba(255,255,255,0.8) 100%); }
+        .check { color: #16a34a; } .cross { color: #dc2626; }
+        table thead tr { background: #f0fdfa; }
+        table td, table th { border-bottom: 1px solid #f1f5f9; }
+    </style>
+</head>
+<body class="font-sans">
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter uppercase">Hafiz<span class="text-brand-blue">.</span>M</a>
+            <a href="index.html" class="text-sm font-bold text-slate-400 hover:text-brand-blue transition-colors">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Hero -->
+            <div class="hero-bg rounded-3xl p-10 mb-8 border border-cyan-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-5xl">🎓</span>
+                    <div>
+                        <span class="text-xs font-black uppercase tracking-widest accent">AI-Powered SaaS · 2026</span>
+                        <h1 class="text-5xl font-black text-slate-900 tracking-tighter">EnrollAI</h1>
+                    </div>
+                </div>
+                <p class="text-xl text-slate-600 mb-6 max-w-3xl leading-relaxed">A fully self-hosted AI chatbot SaaS platform where any business can create customized intelligent agents for their website and WhatsApp. It also includes specialized features for educational institutes, such as CV grading for course eligibility and automated student intake.</p>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Flask</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Groq LLaMA 3.1</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">LangGraph</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">ChromaDB RAG</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Meta WhatsApp API</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">WebSocket</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">MySQL</span>
+                    <span class="px-4 py-2 accent-bg text-white text-xs font-bold rounded-full">Redis</span>
+                </div>
+                <a href="https://github.com/HafizMuhammadShah42895" target="_blank" class="inline-flex items-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">
+                    <i class="fab fa-github mr-2"></i> View GitHub Profile
+                </a>
+            </div>
+
+            <!-- What is EnrollAI -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📌 What is EnrollAI?</h2>
+                <p class="text-slate-600 leading-relaxed mb-4">EnrollAI is a custom-built, multi-tenant SaaS platform that allows any business to effortlessly build and deploy AI chatbots for their website and WhatsApp. While serving as a universal customer communication tool, it also offers specialized modules for educational institutes—enabling them to automate student intake, answer course-specific queries using RAG, and instantly grade student CVs.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="rounded-2xl p-5 bg-cyan-50 border border-cyan-100">
+                        <div class="flex items-center gap-2 mb-2 font-bold accent"><i class="fas fa-globe"></i> Web-Based Chat Widget</div>
+                        <p class="text-slate-600 text-sm">Embed a highly customizable, white-labeled AI chat widget directly onto the institute's website. Students can talk to the AI to find the right courses and get immediate answers.</p>
+                    </div>
+                    <div class="rounded-2xl p-5 bg-cyan-50 border border-cyan-100">
+                        <div class="flex items-center gap-2 mb-2 font-bold accent"><i class="fab fa-whatsapp"></i> WhatsApp Automation</div>
+                        <p class="text-slate-600 text-sm">Fully integrated with the Meta WhatsApp Business API to deploy the AI agent directly to students' phones, allowing them to inquire and enroll natively via WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem & Solution -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🎯 Problem Solved</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h3 class="font-black text-slate-700 text-xs uppercase tracking-widest mb-4">Traditional Challenges</h3>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Admissions teams are overwhelmed answering the same course eligibility and fee questions.</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Missed enrollments during off-hours or weekends.</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Manual review of student CVs and applications takes days, delaying the enrollment process.</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-times-circle text-red-400 mt-1"></i><span>Scattered leads across different platforms with no centralized tracking.</span></div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-black text-slate-700 text-xs uppercase tracking-widest mb-4">EnrollAI Solutions</h3>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Always-on AI agent that handles Tier-1 inquiries, filtering only qualified leads to human staff.</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Automated CV Grading using LLMs to instantly assess if a student meets course requirements.</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Centralized Intake CRM that tracks every student interaction, chat transcript, and enrollment status in one secure dashboard.</span></div>
+                        <div class="flex items-start gap-3 text-sm text-slate-600"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Fully Self-Hosted ensuring student data privacy and zero vendor lock-in.</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">✨ All Platform Features</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-lock"></i> User Authentication & Multi-Tenancy</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Each institution gets its own isolated account and dashboard.</li>
+                            <li>• Complete data segregation ensures no cross-institute data leakage.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-book"></i> AI Knowledge Base (RAG) & Course Management</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Institutes can upload custom PDF/DOCX documents (prospectuses, syllabi) into a private ChromaDB vector database.</li>
+                            <li>• Dynamic Course Builder: Add active courses with schedules, fees, deadlines, and eligibility criteria.</li>
+                            <li>• The AI agent retrieves exact course details and institute rules during live conversations via RAG.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-robot"></i> AI Agent Configuration & White-labeling</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Customize the AI agent's name (e.g., Alex) and conversational tone (Professional, Friendly, Assertive).</li>
+                            <li>• Widget Builder: Fully customize the embedded web widget (colors, avatars, themes, typography) to match brand guidelines.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-file-alt"></i> Intelligent Registration & CV Analysis</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Dynamic Form Builder: Create custom intake and registration forms per institution.</li>
+                            <li>• Students can upload their CVs during chat; the AI analyzes the document against course requirements and assigns an automated "CV Score."</li>
+                            <li>• Generates a detailed AI analysis report for the admissions team explaining why a candidate is or isn't a fit.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-comments"></i> Omnichannel Conversational Pipeline</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• WebSockets: Real-time, low-latency streaming chat interface for web users.</li>
+                            <li>• WhatsApp API: Native integration for automated WhatsApp bot interactions.</li>
+                            <li>• Powered by LangChain, LangGraph, and Groq (LLaMA 3.1) for fast, contextual, and memory-aware dialogue.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold accent mb-2 flex items-center gap-2"><i class="fas fa-chart-line"></i> AI-Powered Session Analytics & Token Tracking</h3>
+                        <ul class="space-y-1 text-sm text-slate-600 ml-6">
+                            <li>• Auto-generated session summaries and sentiment analysis (Positive, Neutral, Negative) after every interaction.</li>
+                            <li>• Automatic outcome classification (e.g., Enrolled, Interested, Query Answered).</li>
+                            <li>• Granular AI Usage Logging: Tracks prompt/completion tokens, latency, and estimated LLM costs on a per-feature and per-company basis.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Comparison -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">📊 Market Comparison</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr>
+                            <th class="text-left p-3 font-black text-slate-700">Feature</th>
+                            <th class="p-3 font-black accent">EnrollAI</th>
+                            <th class="p-3 font-bold text-slate-400">Standard Chatbots (Dialogflow)</th>
+                            <th class="p-3 font-bold text-slate-400">Generic SaaS (Intercom/Zendesk)</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr><td class="p-3 font-semibold">Cost</td><td class="p-3 text-center font-bold text-green-600">Very Low (Self-hosted / Groq API)</td><td class="p-3 text-center text-slate-400">High per-interaction</td><td class="p-3 text-center text-slate-400">Expensive Monthly Subscriptions</td></tr>
+                            <tr><td class="p-3 font-semibold">Course/CV Logic</td><td class="p-3 text-center check font-bold">Native AI CV Grading & Eligibility</td><td class="p-3 text-center cross">None</td><td class="p-3 text-center cross">None</td></tr>
+                            <tr><td class="p-3 font-semibold">Data Privacy</td><td class="p-3 text-center check font-bold">Full — Hosted on your own server</td><td class="p-3 text-center text-slate-400">Cloud-based</td><td class="p-3 text-center text-slate-400">Cloud-based</td></tr>
+                            <tr><td class="p-3 font-semibold">Knowledge Base</td><td class="p-3 text-center check font-bold"><i class="fas fa-check"></i> Automated RAG (ChromaDB + PDFs)</td><td class="p-3 text-center cross">Manual Intent Mapping</td><td class="p-3 text-center cross">Manual Article Creation</td></tr>
+                            <tr><td class="p-3 font-semibold">Channels</td><td class="p-3 text-center check font-bold">Web Widget + WhatsApp</td><td class="p-3 text-center text-slate-400">Varies</td><td class="p-3 text-center text-slate-400">Web / Email</td></tr>
+                            <tr><td class="p-3 font-semibold">Data Ownership</td><td class="p-3 text-center check font-bold">You own everything</td><td class="p-3 text-center cross">Locked</td><td class="p-3 text-center cross">Locked</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-6 text-slate-900">🛠️ Tech Stack</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div><h3 class="font-bold accent mb-2">Backend</h3><p class="text-slate-600 text-sm">Python, Flask, Flask-SocketIO, SQLAlchemy, MySQL, Redis, Gevent</p></div>
+                    <div><h3 class="font-bold accent mb-2">AI Pipeline</h3><p class="text-slate-600 text-sm">LangChain, LangGraph, Groq (LLaMA 3.1 Inference)</p></div>
+                    <div><h3 class="font-bold accent mb-2">Knowledge Base & RAG</h3><p class="text-slate-600 text-sm">ChromaDB, HuggingFace Sentence Transformers, PyPDF</p></div>
+                    <div><h3 class="font-bold accent mb-2">Integrations & Real-Time</h3><p class="text-slate-600 text-sm">Meta WhatsApp Business API, WebSockets</p></div>
+                    <div><h3 class="font-bold accent mb-2">Frontend</h3><p class="text-slate-600 text-sm">HTML5, CSS3, JavaScript, Jinja2 Templates (White-label widget system)</p></div>
+                    <div><h3 class="font-bold accent mb-2">Architecture</h3><p class="text-slate-600 text-sm">Multi-tenant SaaS, DB Connection Pooling, Token Usage Tracking</p></div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="glass-card p-8 rounded-3xl mb-8">
+                <h2 class="text-2xl font-black mb-4 text-slate-900">🚀 Key Achievements</h2>
+                <ul class="space-y-3 text-slate-600">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Architected a highly scalable, multi-tenant educational SaaS platform with complete data isolation and custom branding per user.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Built a robust Retrieval-Augmented Generation (RAG) system using ChromaDB to allow the AI to accurately answer student queries based on uploaded prospectuses.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Engineered a seamless omnichannel experience by integrating real-time WebSocket web chats with the Meta WhatsApp API.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Developed a proprietary AI-powered CV grading system that automatically evaluates student eligibility against specific course requirements.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Implemented comprehensive AI usage telemetry to track token consumption, latency, and cost per feature, ensuring predictable operational costs.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i><span>Delivered a built-in CRM and dynamic form builder for tracking the end-to-end student enrollment lifecycle.</span></li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="index.html" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-brand-blue transition-all">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

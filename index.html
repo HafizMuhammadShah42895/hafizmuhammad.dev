@@ -97,6 +97,8 @@
         .card-video:hover { box-shadow: 0 30px 60px -15px rgba(5,150,105,0.15); border-color: rgba(5,150,105,0.3); }
         .card-caller:hover { box-shadow: 0 30px 60px -15px rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); }
         .card-matrimony:hover { box-shadow: 0 30px 60px -15px rgba(225,29,72,0.15); border-color: rgba(225,29,72,0.3); }
+        .card-enroll:hover { box-shadow: 0 30px 60px -15px rgba(8,145,178,0.15); border-color: rgba(8,145,178,0.3); }
+        .card-voiceflow:hover { box-shadow: 0 30px 60px -15px rgba(234,88,12,0.15); border-color: rgba(234,88,12,0.3); }
 
         .card-movers { background: linear-gradient(135deg, rgba(239,246,255,0.8) 0%, rgba(255,255,255,0.7) 100%); }
         .card-gourmet { background: linear-gradient(135deg, rgba(238,242,255,0.8) 0%, rgba(255,255,255,0.7) 100%); }
@@ -104,6 +106,8 @@
         .card-video { background: linear-gradient(135deg, rgba(236,253,245,0.8) 0%, rgba(255,255,255,0.7) 100%); }
         .card-caller { background: linear-gradient(135deg, rgba(237,233,254,0.8) 0%, rgba(255,255,255,0.7) 100%); }
         .card-matrimony { background: linear-gradient(135deg, rgba(255,228,230,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-enroll { background: linear-gradient(135deg, rgba(207,250,254,0.8) 0%, rgba(255,255,255,0.7) 100%); }
+        .card-voiceflow { background: linear-gradient(135deg, rgba(255,237,213,0.8) 0%, rgba(255,255,255,0.7) 100%); }
 
         .project-card .card-arrow {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
@@ -128,6 +132,8 @@
         .card-video .project-number { color: #059669; }
         .card-caller .project-number { color: #7c3aed; }
         .card-matrimony .project-number { color: #e11d48; }
+        .card-enroll .project-number { color: #0891b2; }
+        .card-voiceflow .project-number { color: #ea580c; }
         .project-card:hover .project-number { opacity: 0.07; }
 
         .tag-pill {
@@ -144,6 +150,8 @@
         .card-video .tag-pill { background: rgba(5,150,105,0.08); color: #059669; }
         .card-caller .tag-pill { background: rgba(124,58,237,0.08); color: #7c3aed; }
         .card-matrimony .tag-pill { background: rgba(225,29,72,0.08); color: #e11d48; }
+        .card-enroll .tag-pill { background: rgba(8,145,178,0.08); color: #0891b2; }
+        .card-voiceflow .tag-pill { background: rgba(234,88,12,0.08); color: #ea580c; }
 
         /* CTA button — always looks like a clickable button */
         .cta-line {
@@ -166,6 +174,8 @@
         .card-video .cta-line   { border-color: rgba(5,150,105,0.35);  color: #059669;  background: rgba(5,150,105,0.06); }
         .card-caller .cta-line  { border-color: rgba(124,58,237,0.35); color: #7c3aed;  background: rgba(124,58,237,0.06); }
         .card-matrimony .cta-line { border-color: rgba(225,29,72,0.35); color: #e11d48; background: rgba(225,29,72,0.06); }
+        .card-enroll .cta-line { border-color: rgba(8,145,178,0.35); color: #0891b2; background: rgba(8,145,178,0.06); }
+        .card-voiceflow .cta-line { border-color: rgba(234,88,12,0.35); color: #ea580c; background: rgba(234,88,12,0.06); }
 
         .card-movers .card-icon-bg { background: rgba(37,99,235,0.08); }
         .card-gourmet .card-icon-bg { background: rgba(79,70,229,0.08); }
@@ -173,6 +183,8 @@
         .card-video .card-icon-bg { background: rgba(5,150,105,0.08); }
         .card-caller .card-icon-bg { background: rgba(124,58,237,0.08); }
         .card-matrimony .card-icon-bg { background: rgba(225,29,72,0.08); }
+        .card-enroll .card-icon-bg { background: rgba(8,145,178,0.08); }
+        .card-voiceflow .card-icon-bg { background: rgba(234,88,12,0.08); }
     </style>
 </head>
 
@@ -314,9 +326,67 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
+                <!-- EnrollAI -->
+                <div class="project-card card-enroll p-10 reveal-up" onclick="window.location.href='enrollai.html'">
+                    <span class="project-number">01</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🎓</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-lg" style="color:#0891b2"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">AI SaaS</span>
+                            <span class="tag-pill">EdTech</span>
+                            <span class="tag-pill">2026</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">EnrollAI</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">A fully self-hosted AI chatbot SaaS for any business to build web and WhatsApp agents, featuring specialized tools for educational institutes.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">LangGraph</span>
+                            <span class="tag-pill">LLaMA 3.1</span>
+                            <span class="tag-pill">ChromaDB</span>
+                            <span class="tag-pill">WhatsApp API</span>
+                            <span class="tag-pill">Flask</span>
+                        </div>
+                        <div class="cta-line">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VoiceFlow -->
+                <div class="project-card card-voiceflow p-10 reveal-up" onclick="window.location.href='voiceflow.html'">
+                    <span class="project-number">02</span>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🎙️</div>
+                            <i class="fas fa-arrow-up-right-from-square card-arrow text-lg" style="color:#ea580c"></i>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag-pill">Voice AI</span>
+                            <span class="tag-pill">Desktop App</span>
+                            <span class="tag-pill">2026</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-3">VoiceFlow</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">A global voice-to-text dictation system that types into any app via hotkeys, with on-the-fly AI grammar correction.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag-pill">Faster-Whisper</span>
+                            <span class="tag-pill">Groq</span>
+                            <span class="tag-pill">Ollama</span>
+                            <span class="tag-pill">Python</span>
+                            <span class="tag-pill">Pywebview</span>
+                        </div>
+                        <div class="cta-line">
+                            <span>View Full Case Study</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- CallerAI -->
                 <div class="project-card card-caller p-10 reveal-up" onclick="window.location.href='caller-ai.html'">
-                    <span class="project-number">01</span>
+                    <span class="project-number">03</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">📞</div>
@@ -345,7 +415,7 @@
 
                 <!-- Premium Matrimony -->
                 <div class="project-card card-matrimony p-10 reveal-up" onclick="window.location.href='premium-matrimony.html'">
-                    <span class="project-number">02</span>
+                    <span class="project-number">04</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">💍</div>
@@ -374,7 +444,7 @@
 
                 <!-- Movers -->
                 <div class="project-card card-movers p-10 reveal-up" onclick="window.location.href='move-ease.html'">
-                    <span class="project-number">03</span>
+                    <span class="project-number">05</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🚚</div>
@@ -403,7 +473,7 @@
 
                 <!-- Gourmet -->
                 <div class="project-card card-gourmet p-10 reveal-up" onclick="window.location.href='gourmet-haven.html'">
-                    <span class="project-number">04</span>
+                    <span class="project-number">06</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🍽️</div>
@@ -432,7 +502,7 @@
 
                 <!-- Doc Chat -->
                 <div class="project-card card-doc p-10 reveal-up" onclick="window.location.href='doc-chat.html'">
-                    <span class="project-number">05</span>
+                    <span class="project-number">07</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">📄</div>
@@ -461,7 +531,7 @@
 
                 <!-- Video Assistant -->
                 <div class="project-card card-video p-10 reveal-up" onclick="window.location.href='ai-video-assistant.html'">
-                    <span class="project-number">06</span>
+                    <span class="project-number">08</span>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-6">
                             <div class="card-icon-bg w-14 h-14 rounded-2xl flex items-center justify-center text-2xl">🎬</div>
